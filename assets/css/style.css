@@ -1,0 +1,571 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Oswald", sans-serif;
+  background-color: #1E1E1E;
+}
+
+header {
+  width: 100%;
+  height: 440px;
+  background-image: url(http://localhost/siskamling/assets/img/objek/Objek@2x.png);
+  background-size: cover;
+  background-position: center;
+}
+
+#login {
+  width: 100%;
+  height: 100vh;
+  background-image: url(http://localhost/siskamling/assets/img/objek/Objek@2x.png);
+  background-size: cover;
+  background-position: center;
+}
+
+/* Button Ke atas */
+#btn-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background-color: #00C39A;
+  display: none;
+  z-index: 99;
+  border: none;
+}
+
+#btn-to-top i {
+  color: whitesmoke;
+}
+/* Button Ke atas */
+
+/* Section Login Start */
+.section-login {
+  padding-top: 200px;
+  text-align: center;
+  width: 100%;
+}
+.section-login .login-container{
+  padding-right: 32px;
+  padding-left: 32px;
+}
+.section-login h1 {
+  font-size: 42px;
+  color: whitesmoke;
+}
+.section-login h3 {
+  font-size: 26px;
+  color: whitesmoke;
+  margin-bottom: 32px;
+}
+.section-login a {
+  display: block;
+  margin-top: 8px;
+}
+.section-login button {
+  width: 100%;
+  padding: 12px 0px;
+  color: whitesmoke;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+.section-login button:hover {
+  opacity: 90%;
+}
+.modal-content {
+  background-color: #434343;
+}
+/* Section Login End */
+
+/* Section Welcome Start */
+.section-welcome {
+  padding-top: 170px;
+  text-align: center;
+  width: 100%;
+}
+.section-welcome h1 {
+  font-size: 38px;
+  color: whitesmoke;
+}
+.section-welcome h3 {
+  font-size: 30px;
+  color: whitesmoke;
+}
+.section-welcome button {
+  padding: 8px 14px;
+  color: whitesmoke;
+  background-color: #121418;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+.section-welcome button:hover {
+  background-color: #1E1E1E;
+}
+/* Section Welcome End */
+
+/* Section Features Start */
+.features-container {
+  padding-bottom: 46px;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+.section-features h1 {
+  font-size: 30px;
+  color: whitesmoke;
+  text-align: center;
+  margin-top: 46px;
+}
+.section-features hr {
+  color: whitesmoke;
+  width: 80%;
+  display: block;
+  margin: auto;
+  margin-bottom: 40px;
+}
+.section-features .absen-features {
+  text-align: center;
+}
+.section-features .absen-features h2 {
+  margin-top: 16px;
+  color: whitesmoke;
+}
+.section-features .absen-features p {
+  margin-top: 16px;
+  color: whitesmoke;
+}
+.absen-features .absen-content {
+  padding-left: 0px; 
+  padding-right: 0px;
+}
+.section-features .laporan-features {
+  margin-top: 64px;
+  text-align: center;
+}
+.section-features .laporan-features h2 {
+  margin-top: 16px;
+  color: whitesmoke;
+}
+.section-features .laporan-features p {
+  margin-top: 16px;
+  color: whitesmoke;
+}
+.laporan-features .laporan-content {
+  padding-left: 0px; 
+  padding-right: 0px;
+}
+.section-features .blog-features {
+  margin-top: 64px;
+  text-align: center;
+}
+.section-features .blog-features h2 {
+  margin-top: 16px;
+  color: whitesmoke;
+}
+.section-features .blog-features p {
+  margin-top: 16px;
+  color: whitesmoke;
+}
+.blog-features .blog-content {
+  padding-left: 0px; 
+  padding-right: 0px;
+}
+/* Section Features End */
+
+/* Section Jadwal Start */
+.section-jadwal h1 {
+  font-size: 30px;
+  color: whitesmoke;
+  text-align: center;
+  margin-top: 46px;
+}
+.section-jadwal hr {
+  color: whitesmoke;
+  width: 80%;
+  display: block;
+  margin: auto;
+  margin-bottom: 40px;
+}
+.jadwal-container{
+  padding-right: 32px;
+  padding-left: 32px;
+}
+.cards-jadwal {
+  display: block;
+}
+.card-jadwal {
+  width: 100%;
+  padding: 16px 8px;
+  margin-bottom: 24px;
+  background-color: #ffffff;
+  border-radius: 4px;
+}
+.card-jadwal h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.card-jadwal hr {
+  color: black;
+  width: 80%;
+  display: block;
+  margin: auto;
+  margin-bottom: 16px;
+}
+.card-jadwal ul li {
+  list-style: none;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+.btn-jadwal {
+  display: flex;
+  justify-content: center;
+}
+.btn-jadwal button {
+  text-align: center;
+  color: #ffffff;
+  padding: 8px 10px;
+  border: 0;
+}
+/* Section Jadwal End */
+
+/* Section Laporan Warga Start */
+.section-laporan h1 {
+  font-size: 30px;
+  color: whitesmoke;
+  text-align: center;
+  margin-top: 46px;
+}
+.section-laporan hr {
+  color: whitesmoke;
+  width: 80%;
+  display: block;
+  margin: auto;
+  margin-bottom: 40px;
+}
+.laporan-container{
+  padding-right: 32px;
+  padding-left: 32px;
+}
+/* Section Laporan Warga End */
+
+/* Section Absen Petugas Start */
+.section-absen h1 {
+  font-size: 30px;
+  color: whitesmoke;
+  text-align: center;
+  margin-top: 46px;
+}
+.section-absen hr {
+  color: whitesmoke;
+  width: 80%;
+  display: block;
+  margin: auto;
+  margin-bottom: 40px;
+}
+.attendance-container {
+  padding-right: 32px;
+  padding-left: 32px;
+}
+/* Section Absen Petugas End */
+
+/* Section Blog News End */
+.section-news {
+  padding-top: 46px;
+  padding-bottom: 64px;
+}
+.section-news h1 {
+  font-size: 30px;
+  color: whitesmoke;
+  text-align: center;
+}
+.section-news hr {
+  color: whitesmoke;
+  width: 80%;
+  display: block;
+  margin: auto;
+  margin-bottom: 40px;
+}
+.news-container{
+  padding-right: 32px;
+  padding-left: 32px;
+}
+.card-news {
+  min-width: 100%;
+}
+.card-content {
+  width: 100%;
+  margin: auto;
+}
+.card {
+  background-color: #434343;
+}
+/* Section Blog News End */
+
+/* Navbar Section Start */
+.nav-container {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 64px;
+  height: 80px;
+  background: #000;
+}
+
+.nav-button {
+  display: none;
+  margin-right: 32px;
+  padding: 0;
+  outline: none;
+  border: none;
+  color: #fff;
+  background: transparent;
+  cursor: pointer;
+}
+
+.nav-logo {
+  flex: 1;
+  color: #fff;
+  font-size: 24px;
+  margin-top: 6px;
+}
+
+.menu-container {
+  display: flex;
+  list-style: none;
+}
+
+.menu-item {
+  margin: 12px 0px 0px 32px;
+  font-size: 18px;
+}
+
+@media (max-width: 720px) {
+  .nav-container {
+    padding: 0 32px;
+  }
+  .nav-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .menu-container {
+    position: absolute;
+    top: 80px;
+    left: -100%;
+    flex-direction: column;
+    padding: 48px;
+    width: 240px;
+    height: calc(100vh - 5rem);
+    background: #222;
+    transition: 0.5s ease;
+  }
+
+  /* show class will make .menu-container slides in */
+  .show {
+    left: 0;
+  }
+  .menu-item {
+    margin: 16px 0;
+    font-size: 16px;
+  }
+}
+
+.menu-link {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.menu-link:hover {
+  color: turquoise;
+}
+/* Navbar Section End */
+
+/* Responsive sm */
+@media (min-width: 640px) {
+}
+
+/* Responsive md */
+@media (min-width: 768px) {
+  /* Section Login Start */
+  .login-container {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+  .section-login {
+    padding-top: 250px;
+  }
+  .section-login h1 {
+    font-size: 72px;
+  }
+  .section-login h3 {
+    font-size: 42px;
+  }
+  .section-login h4 {
+    font-size: 32px;
+  }
+  .section-login .login-button {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  .section-login a {
+    display: block;
+  }
+  .section-login button {
+    width: 250px;
+    padding: 16px 0px;
+    color: whitesmoke;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+  }
+  .modal-auth {
+    width: 320px;
+  }
+  .modal-content {
+    background-color: #434343;
+  }
+  /* Section Login End */
+
+  /* Section Welcome Start */
+  .welcome-container {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+  .section-welcome {
+    padding-top: 170px;
+    width: 80%;
+    text-align: start;
+  }
+  .section-welcome h1 {
+    font-size: 66px;
+  }
+  .section-welcome h3 {
+    font-size: 36px;
+  }
+  /* Section Welcome End */
+
+  /* Section Features Start */
+  .features-container {
+    padding-bottom: 128px;
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+  .section-features h1 {
+    font-size: 46px;
+  }
+  .section-features hr {
+    width: 80%;
+  }
+  .section-features .absen-features {
+    text-align: start;
+  }
+  .section-features .absen-features h2 {
+    margin-top: 0px;
+  }
+  .absen-features .absen-content {
+    padding-left: 200px; 
+    padding-right: 200px;
+  }
+  .section-features .laporan-features {
+    text-align: start;
+  }
+  .section-features .laporan-features h2 {
+    margin-top: 0px;
+  }
+  .laporan-features .laporan-content {
+    padding-left: 200px; 
+    padding-right: 50px;
+  }
+  .section-features .blog-features {
+    text-align: start;
+  }
+  .section-features .blog-features h2 {
+    margin-top: 0px;
+  }
+  .blog-features .blog-content {
+    padding-left: 200px; 
+    padding-right: 200px;
+  }
+  /* Section Features End */
+
+  /* Section Jadwal Start */
+  .section-jadwal h1 {
+    font-size: 52px;
+  }
+  .jadwal-container{
+    padding-right: 64px;
+    padding-left: 64px;
+  }
+  .cards-jadwal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .card-jadwal {
+    width: 30%;
+    margin-bottom: 60px;
+  }
+  .card-jadwal h3 {
+    font-size: 32px;
+  }
+  .card-jadwal ul li {
+    font-size: 20px;
+  }
+  /* Section Jadwal End */
+
+  /* Section Laporan Warga Start */
+  .section-laporan h1 {
+    font-size: 52px;
+  }
+  .laporan-container{
+    padding-right: 64px;
+    padding-left: 64px;
+  }
+  /* Section Laporan Warga End */
+
+  /* Section Absen Petugas Start */
+  .section-absen h1 {
+    font-size: 52px;
+  }
+  .attendance-container{
+    padding-right: 64px;
+    padding-left: 64px;
+  }
+  /* Section Absen Petugas End */
+
+  /* Section Blog News End */
+  .section-news h1 {
+    font-size: 52px;
+  }
+  .news-container {
+    padding-right: 64px;
+    padding-left: 64px;
+  }
+  .card-news {
+    min-width: 320px;
+  }
+  .card-content {
+    width: 50%;
+  }
+  .modal-blog {
+    width: 500px;
+  }
+  /* Section Blog News End */
+}
+
+/* Responsive lg */
+@media (min-width: 1024px) {
+
+}
+
