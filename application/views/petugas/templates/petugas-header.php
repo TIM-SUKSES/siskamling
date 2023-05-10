@@ -90,21 +90,31 @@
 <body>
   <header>
     <!-- Navbar -->
-    <nav class="nav-container">
-      <button class="nav-button"></button>
-      <h1 class="nav-logo">SISKAMLING</h1>
-      <ul class="menu-container">
-        <li class="menu-item">
-          <a class="menu-link" href="<?php echo base_url('petugas/HomePetugas'); ?>">Home</a>
-        </li>
-        <li class="menu-item">
-          <a class="menu-link" href="<?php echo base_url('petugas/JadwalPetugas'); ?>">Jadwal</a>
-        </li>
-        <li class="menu-item">
-          <a class="menu-link" href="<?php echo base_url('petugas/Blogpetugas'); ?>">Blog</a>
-        </li>
-      </ul>
-    </nav>
+      <nav class="nav-container">
+        <button class="nav-button"></button>
+        <h1 class="nav-logo">SISKAMLING</h1>
+        <ul class="menu-container">
+          <li class="menu-item">
+            <a class="menu-link" href="<?php echo base_url('petugas/HomePetugas'); ?>">Home</a>
+          </li>
+          <li class="menu-item">
+            <a class="menu-link" href="<?php echo base_url('petugas/JadwalPetugas'); ?>">Jadwal</a>
+          </li>
+          <li class="menu-item">
+            <a class="menu-link" href="<?php echo base_url('petugas/Blogpetugas'); ?>">Blog</a>
+          </li>
+          <div class="menu-item dropdown">
+            <a class="menu-link dropdown-toggle" href="#" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa fa-user"></i> <?php echo $this->session->userdata('nama_pengguna');  ?>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href=""><i class="fa fa-gear"></i> Pengaturan</a></li>
+              <li><a class="dropdown-item" href=""><i class="fa fa-gear"></i> Keluar</a></li>
+            </ul>
+          </div>
+        </ul>
+      </nav>
+
 
     <!-- Section Welcome -->
     <section id="beranda" class="section-welcome">
