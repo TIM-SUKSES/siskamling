@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="<?php echo base_url('assets/'); ?>splidejs/splide.min.css">
   <script src="<?php echo base_url('assets/'); ?>splidejs/splide.min.js"></script>
   <style>
+    /* CSS Form Absen Section */
     .card-form {
       background-color: #434343;
       padding: 80px 60px;
@@ -85,35 +86,57 @@
         width: 100%;
       }
     }
+
+    /* CSS Navbar Dropdown */
+    .dropdown-nav-menu {
+      width: 140px;
+      position: absolute;
+      top: 40px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      background-color: #fff;
+      font-size: 16px;
+    }
+    .dropdown-nav-item {
+      display: block;
+      text-decoration: none;
+      color: #000000;
+      margin-bottom: 5px;
+      transition: 0.5s ease;
+    }
+    .hidden-nav {
+      display: none;
+    }
+    .dropdown-nav-item:hover {
+      color: turquoise;
+    }
   </style>
 </head>
 <body>
   <header>
     <!-- Navbar -->
-      <nav class="nav-container">
-        <button class="nav-button"></button>
-        <h1 class="nav-logo">SISKAMLING</h1>
-        <ul class="menu-container">
-          <li class="menu-item">
-            <a class="menu-link" href="<?php echo base_url('petugas/HomePetugas'); ?>">Home</a>
-          </li>
-          <li class="menu-item">
-            <a class="menu-link" href="<?php echo base_url('petugas/JadwalPetugas'); ?>">Jadwal</a>
-          </li>
-          <li class="menu-item">
-            <a class="menu-link" href="<?php echo base_url('petugas/Blogpetugas'); ?>">Blog</a>
-          </li>
-          <div class="menu-item dropdown">
-            <a class="menu-link dropdown-toggle" href="#" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="fa fa-user"></i> <?php echo $this->session->userdata('nama_pengguna');  ?>
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href=""><i class="fa fa-gear"></i> Pengaturan</a></li>
-              <li><a class="dropdown-item" href=""><i class="fa fa-gear"></i> Keluar</a></li>
-            </ul>
+    <nav class="nav-container">
+      <button class="nav-button"></button>
+      <h1 class="nav-logo">SISKAMLING</h1>
+      <ul class="menu-container">
+        <li class="menu-item">
+          <a class="menu-link" href="<?php echo base_url('petugas/HomePetugas'); ?>">Home</a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="<?php echo base_url('petugas/JadwalPetugas'); ?>">Jadwal</a>
+        </li>
+        <li class="menu-item">
+          <a class="menu-link" href="<?php echo base_url('petugas/Blogpetugas'); ?>">Blog</a>
+        </li>
+        <li class="menu-item dropdown-menu-item" style="position: relative;">
+          <a class="menu-link" href="#">Alvin Austin <i class="fa-solid fa-caret-down"></i></i><!-- Nama Dipanggil dari database -->
+          <div class="dropdown-nav-menu hidden-nav">
+            <a class="dropdown-nav-item" href="<?php echo base_url('petugas/UbahPassword'); ?>"><i class="fa fa-gear"></i> Pengaturan</a>
+            <a class="dropdown-nav-item" href="#"><i class="fa fa-sign-out"></i> Keluar</a>
           </div>
-        </ul>
-      </nav>
+        </li>
+      </ul>
+    </nav>
 
 
     <!-- Section Welcome -->

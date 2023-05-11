@@ -30,9 +30,6 @@ const toggleShowMenu = () => {
 // event listener
 navButton.addEventListener("click", toggleShowMenu);
 
-menuLinks.forEach((menuLink) =>
-    menuLink.addEventListener("click", toggleShowMenu)
-);
 // JS Navbar End
 
 
