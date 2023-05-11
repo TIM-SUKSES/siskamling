@@ -20,7 +20,7 @@
   <div class="modal-dialog modal-dialog-centered modal-auth">
     <div class="modal-content bg-light">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Login Petugas / Admin</h1>
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Masukkan Akun Anda</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -43,10 +43,10 @@
           </script>
         </form>
       </div>
-      <div class="modal-footer">
+      <!-- <div class="modal-footer">
         <p class="text-end mt-3">Password belum diganti? <br> Gunakan password 
         <b class="text-primary"><u>siskamling2023</u></b> </p>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
