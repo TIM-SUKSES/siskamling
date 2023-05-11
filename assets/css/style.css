@@ -319,7 +319,6 @@ header {
   height: 80px;
   background: #000;
 }
-
 .nav-button {
   display: none;
   margin-right: 32px;
@@ -330,19 +329,16 @@ header {
   background: transparent;
   cursor: pointer;
 }
-
 .nav-logo {
   flex: 1;
   color: #fff;
   font-size: 24px;
   margin-top: 6px;
 }
-
 .menu-container {
   display: flex;
   list-style: none;
 }
-
 .menu-item {
   margin: 12px 0px 0px 32px;
   font-size: 18px;
@@ -384,7 +380,6 @@ header {
   text-decoration: none;
   transition: 0.3s ease;
 }
-
 .menu-link:hover {
   color: turquoise;
 }
