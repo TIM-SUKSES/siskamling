@@ -129,10 +129,10 @@
           <a class="menu-link" href="<?php echo base_url('petugas/Blogpetugas'); ?>">Blog</a>
         </li>
         <li class="menu-item dropdown-menu-item" style="position: relative;">
-          <a class="menu-link" href="#">Alvin Austin <i class="fa-solid fa-caret-down"></i></i><!-- Nama Dipanggil dari database -->
+          <a class="menu-link" href="#"><?php echo $this->session->userdata('nama_pengguna'); ?> <i class="fa-solid fa-caret-down"></i></i><!-- Nama Dipanggil dari database -->
           <div class="dropdown-nav-menu hidden-nav">
             <a class="dropdown-nav-item" href="<?php echo base_url('petugas/UbahPassword'); ?>"><i class="fa fa-gear"></i> Pengaturan</a>
-            <a class="dropdown-nav-item" href="#"><i class="fa fa-sign-out"></i> Keluar</a>
+            <a class="dropdown-nav-item" href="<?php echo base_url('auth/logout'); ?>"><i class="fa fa-sign-out"></i> Keluar</a>
           </div>
         </li>
       </ul>

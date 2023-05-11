@@ -16,12 +16,13 @@ class Auth extends CI_Controller{
     $cek_user = $this->db->get_where('pengguna', ['email' => $this->input->post('email', true)])->row();
         if ($cek_user){
             if(password_verify($this->input->post('password'), $cek_user->password)){
-                if ($cek_user == 'admin'){
+                if ($cek_user->role == 'admin'){
                     $data_session = [
                          'id_pengguna' => $cek_user->id_pengguna,
                          'email' => $cek_user->email,
                          'password' => $cek_user->password,
-                         'nama' => $cek_user->nama,
+                         'nama_pengguna' => $cek_user->nama_pengguna,
+                         'role' => $cek_user->role
                      ];
                     $this->session->set_userdata($data_session);
                     redirect("admin/DataPetugas");
@@ -30,7 +31,8 @@ class Auth extends CI_Controller{
                          'id_pengguna' => $cek_user->id_pengguna,
                          'email' => $cek_user->email,
                          'password' => $cek_user->password,
-                         'nama' => $cek_user->nama,
+                         'nama_pengguna' => $cek_user->nama_pengguna,
+                         'role' => $cek_user->role
                     ];
                     $this->session->set_userdata($data_session);
                     redirect("Petugas/HomePetugas");
@@ -51,8 +53,8 @@ class Auth extends CI_Controller{
         }
   }
 
-  public function logout(){
-
+  public function logout()
+  {
     $this->session->sess_destroy();
     redirect('auth');
 }

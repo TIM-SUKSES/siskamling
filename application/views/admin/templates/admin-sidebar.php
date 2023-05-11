@@ -8,7 +8,7 @@
           <img src="<?php echo base_url('assets/img/out..png'); ?>" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Herman</p> <!-- Nama diambil dari database -->
+          <p><?php echo $this->session->userdata('nama_pengguna'); ?></p> <!-- Nama diambil dari database -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
