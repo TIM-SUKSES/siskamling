@@ -6,8 +6,8 @@
       <h1>SELAMAT DATANG</h1>
       <h3>DI WEBSITE SISKAMLING</h3>
       <div class="login-button">
-        <a href="" data-bs-toggle="modal" data-bs-target="#modal-login"><button class="bg-primary">MASUK SEBAGAI PETUGAS / ADMIN</button></a>
-        <a href="<?php echo base_url('warga/HomeWarga'); ?>"><button class="bg-success">MASUK SEBAGAI WARGA</button></a>
+        <a href="" data-bs-toggle="modal" data-bs-target="#modal-login"><button class="bg-primary"><i class="fa fa-user-secret"> </i> MASUK SEBAGAI PETUGAS</button></a>
+        <a href="<?php echo base_url('warga/HomeWarga'); ?>"><button class="bg-success"><i class="fa fa-users"> </i> MASUK SEBAGAI WARGA</button></a>
       </div>
     </div>
   </div>
