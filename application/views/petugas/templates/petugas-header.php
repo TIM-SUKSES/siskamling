@@ -131,7 +131,7 @@
         <li class="menu-item dropdown-menu-item" style="position: relative;">
           <a class="menu-link" href="#">Alvin Austin <i class="fa-solid fa-caret-down"></i></i><!-- Nama Dipanggil dari database -->
           <div class="dropdown-nav-menu hidden-nav">
-            <a class="dropdown-nav-item" href="#"><i class="fa fa-gear"></i> Pengaturan</a>
+            <a class="dropdown-nav-item" href="<?php echo base_url('petugas/UbahPassword'); ?>"><i class="fa fa-gear"></i> Pengaturan</a>
             <a class="dropdown-nav-item" href="#"><i class="fa fa-sign-out"></i> Keluar</a>
           </div>
         </li>
