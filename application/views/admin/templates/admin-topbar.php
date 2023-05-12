@@ -36,8 +36,8 @@
                 <img src="<?php echo base_url('assets/img/out..png'); ?>" class="img-circle" alt="User Image">
 
                 <p>
-                <?php echo $this->session->userdata('nama_pengguna'); ?> - Ketua RT <!-- Nama diambil dari database -->
-                  <small>Admin SISKAMLING. 2023-05-03</small> <!-- Tanggal diambil dari database -->
+                <?php echo $this->session->userdata('nama_pengguna'); ?><!-- Nama diambil dari database -->
+                  <small>Admin SISKAMLING</small> <!-- Tanggal diambil dari database -->
                 </p>
               </li>
               </li>
