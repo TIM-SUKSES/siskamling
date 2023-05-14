@@ -4,7 +4,7 @@
 
 <div class="box">
             <div class="box-header">
-                <a href="<?php echo site_url('admin/DataPetugas/tambahPetugas') ?>" class="btn bg-red"><i class="fa fa-plus-circle"> Tambah Data Petugas </i></a>
+                <a href="<?php echo site_url('admin/DataPetugas/tambahPetugas'); ?>" class="btn bg-red"><i class="fa fa-plus-circle"> Tambah Data Petugas </i></a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -15,20 +15,18 @@
                   <th>Nama</th>
                   <th>Email</th>
                   <th>Password</th>
-                  <th>Tanggal Input</th>
                   <th>Role</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                    <!-- <php $id_petugas = 1; foreach($tabel as $table) : ?> --> 
+                    <?php $id_pengguna = 1; foreach($tabel as $table) : ?> 
                         <tr>
-                            <td>1<!-- <php echo $table->id_petugas++ ?> --></td>
-                            <td>Alvin Austin<!-- <php echo $table->nama ?> --></td>
-                            <td>alvinaustin123@gmail.com<!-- <php echo $table->email ?> --></td>
-                            <td>$2y$10$kkAUZwTdHjWWfn.O/EqFUueuCeVvKqzz65Li5d7r7yE10mPjxuNVq<!-- <php echo $table->password ?> --></td>
-                            <td>2023-05-03<!-- <php echo $table->tanggal_input ?> --></td>
-                            <td>Petugas</td>
+                            <td><?php echo $table->id_pengguna++ ?></td>
+                            <td><?php echo $table->nama_pengguna ?></td>
+                            <td><?php echo $table->email ?></td>
+                            <td><?php echo $table->password ?></td>
+                            <td><?php echo $table->role ?></td>
                             <td>
                                 <a href="<?php echo site_url('admin/DataPetugas/editPetugas') ?>" 
                                 class="btn btn-sm btn-info"><i class="fa fa-pencil-square-o"></i>Ubah</a>
@@ -36,7 +34,7 @@
                                 class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin Menghapusnya ?')"><i class="fa fa-trash-o"></i>Hapus</a>
                             </td>
                         </tr>
-                    <!-- <php endforeach; ?> -->
+                    <?php endforeach; ?>
                 </tbody>
                 </table>
             </div>

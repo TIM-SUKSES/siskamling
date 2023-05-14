@@ -14,8 +14,8 @@
           <tr>
             <td>
               <div class="form-group">
-                <label for="nama">Nama <span class="text-danger">*</span></label>
-                <input type="text" name="nama" id="nama" class="form-control" placeholder="Masukkan Nama" required value="Alvin Austin"><!-- Value diambil dari database -->
+                <label for="nama_pengguna">Nama <span class="text-danger">*</span></label>
+                <input type="text" name="nama_pengguna" id="nama_pengguna" class="form-control" placeholder="Masukkan Nama" required value="Alvin Austin"><!-- Value diambil dari database -->
               </div>
             </td>
           </tr> 
@@ -38,8 +38,8 @@
           <tr>
             <td>
               <div class="form-group">
-                <label for="level">Roles <span class="text-danger">*</span></label>
-                <select name="level" class="form-control form-control-user">
+                <label for="role">Roles <span class="text-danger">*</span></label>
+                <select name="role" class="form-control form-control-user">
                   <!-- <php foreach ($roles as $r) { ?>
                   <option value="<= $r['id_roles'];?>" <php echo $row->level == $r['nama_roles'] ? 'selected' : '' ?>><= $r['nama_roles'];?></option>
                   <php } ?> -->

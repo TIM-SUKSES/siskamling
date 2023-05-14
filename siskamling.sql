@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2023 at 04:38 AM
+-- Generation Time: May 14, 2023 at 04:14 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -58,7 +58,7 @@ CREATE TABLE `pengguna` (
   `email` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `nama_pengguna` varchar(30) NOT NULL,
-  `role` enum('admin','petugas') NOT NULL
+  `role` enum('petugas','admin') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -67,7 +67,8 @@ CREATE TABLE `pengguna` (
 
 INSERT INTO `pengguna` (`id_pengguna`, `email`, `password`, `nama_pengguna`, `role`) VALUES
 (3, 'alvin.austin4@gmail.com', '$2y$10$DJzs64too3JRZBkMgLYea.O1j2nFh2GH4ReMcIRAmyPo0DdlIb1VO', 'alvin', 'admin'),
-(4, 'raihanramadhan09@gmail.com', '$2y$10$dUtvoyNJygo2CXCSGfYc2.36PmkLIgB8Xlu9dqrL1dJR0XtWhi3xu', 'Rehan Wangsaf', 'petugas');
+(4, 'raihanramadhan09@gmail.com', '$2y$10$dUtvoyNJygo2CXCSGfYc2.36PmkLIgB8Xlu9dqrL1dJR0XtWhi3xu', 'Rehan Wangsaf', 'petugas'),
+(5, 'yusup@gmail.com', '$2y$10$JJb0fiQMxeYg3v/VgkkFYeJNRNPLkZWSr1ZiFbCmTcT.ttAFa4Xve', 'Yusup Supriatna', 'petugas');
 
 --
 -- Indexes for dumped tables
@@ -101,7 +102,7 @@ ALTER TABLE `pengguna`
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
