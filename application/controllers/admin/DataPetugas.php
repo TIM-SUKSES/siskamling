@@ -34,9 +34,11 @@ class DataPetugas extends CI_Controller{
       $this->load->view('admin/templates/admin-footer');
   }
 
-  public function editPetugas()
+  public function editPetugas($id_pengguna)
   {
     $data['title'] = 'Edit Data Petugas';
+    $data['row'] = $this->db->get_where('pengguna', ['id_pengguna' => $id_pengguna])->row();
+    $data['roles'] = $this->ModelPetugas->getRoles()->result_array();
       $this->load->view('admin/templates/admin-header', $data);
       $this->load->view('admin/templates/admin-topbar');
       $this->load->view('admin/templates/admin-sidebar');
@@ -44,7 +46,8 @@ class DataPetugas extends CI_Controller{
       $this->load->view('admin/templates/admin-footer');
   }
 
-  public function simpanPetugas(){
+  public function simpanPetugas()
+  {
     $this->ModelPetugas->simpanPetugas();
     if ($this->db->affected_rows() > 0){
         $this->session->set_flashdata('message', '
@@ -53,7 +56,32 @@ class DataPetugas extends CI_Controller{
             <h4><i class="icon fa fa-warning"></i> Data Telah disimpan! </h4>
         </div>');
         redirect('admin/DataPetugas');
-    }
+    } 
+}
+
+public function update(){
+  $this->ModelPetugas->update();
+  if ($this->db->affected_rows() > 0){
+      $this->session->set_flashdata('message', '
+      <div class="alert alert-warning alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <h4><i class="icon fa fa-warning"></i> Data Telah diupdate! </h4>
+      </div>');
+      redirect('admin/DataPetugas/index');
+  }
+}
+
+public function hapus($id_pengguna)
+{
+  $this->db->delete('pengguna', ['id_pengguna' => $id_pengguna]);
+  if ($this->db->affected_rows() > 0){
+      $this->session->set_flashdata('message', '
+      <div class="alert alert-warning alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <h4><i class="icon fa fa-warning"></i> Data Telah Terhapus! </h4>
+      </div>');
+      redirect('admin/DataPetugas/index');
+  }
 }
 }
 

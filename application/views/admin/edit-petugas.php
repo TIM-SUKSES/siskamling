@@ -8,14 +8,14 @@
     </div>
     <!-- header -->
     <div class="box-body">
-      <form action="" method="post" enctype="multipart/form-data">
-      <!-- <input type="hidden" name="id_petugas" value="<php echo $row->id_petugas ?>"> -->
+      <form action="<?php echo site_url('admin/DataPetugas/update'); ?>" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="id_pengguna" value="<?php echo $row->id_pengguna ?>">
         <table id="table" width="30%">
           <tr>
             <td>
               <div class="form-group">
                 <label for="nama_pengguna">Nama <span class="text-danger">*</span></label>
-                <input type="text" name="nama_pengguna" id="nama_pengguna" class="form-control" placeholder="Masukkan Nama" required value="Alvin Austin"><!-- Value diambil dari database -->
+                <input type="text" name="nama_pengguna" id="nama_pengguna" class="form-control" placeholder="Masukkan Nama" required value="<?php echo $row->nama_pengguna ?>"><!-- Value diambil dari database -->
               </div>
             </td>
           </tr> 
@@ -23,7 +23,7 @@
             <td>
               <div class="form-group">
                 <label for="email">Email <span class="text-danger">*</span></label>
-                <input type="text" name="email" id="email" class="form-control" placeholder="Masukkan Email" required value="alvinaustin123@gmail.com"><!-- Value diambil dari database -->
+                <input type="text" name="email" id="email" class="form-control" placeholder="Masukkan Email" required value="<?php echo $row->email ?>"><!-- Value diambil dari database -->
               </div>
             </td>
           </tr>
@@ -31,7 +31,7 @@
             <td>
               <div class="form-group">
                 <label for="password">Password <span class="text-danger">*</span></label>
-                <input type="text" name="password" id="password" class="form-control" placeholder="Masukkan Password" required value="$2y$10$kkAUZwTdHjWWfn.O/EqFUueuCeVvKqzz65Li5d7r7yE10mPjxuNVq"><!-- Value diambil dari database -->
+                <input type="text" name="password" id="password" class="form-control" placeholder="Masukkan Password" required value="<?php echo $row->password ?>"><!-- Value diambil dari database -->
               </div>
             </td>
           </tr>
@@ -40,9 +40,9 @@
               <div class="form-group">
                 <label for="role">Roles <span class="text-danger">*</span></label>
                 <select name="role" class="form-control form-control-user">
-                  <!-- <php foreach ($roles as $r) { ?>
-                  <option value="<= $r['id_roles'];?>" <php echo $row->level == $r['nama_roles'] ? 'selected' : '' ?>><= $r['nama_roles'];?></option>
-                  <php } ?> -->
+                  <?php foreach ($roles as $r) { ?>
+                  <option value="<?= $r['id_roles'];?>" <?php echo $row->role == $r['nama_roles'] ? 'selected' : '' ?>><?= $r['nama_roles'];?></option>
+                  <?php } ?>
                 </select>
               </div>
             </td>
