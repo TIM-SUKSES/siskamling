@@ -11,6 +11,11 @@ class AbsenMasuk extends CI_Controller{
     $this->load->view('petugas/templates/petugas-footer', $data);
   }
 
+  public function absenPetugas()
+  {
+    
+  }
+
 }
 
 ?>

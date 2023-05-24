@@ -16,6 +16,7 @@
                   <th>Persyaratan</th>
                   <th>Foto</th>
                   <th>Tanggal Input</th>
+                  <th>Status</th>
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -29,6 +30,7 @@
                               <img src="<?php echo base_url('assets/img/foto-selfie.png'); ?>" width="100"><!-- <img src="<php echo base_url('assets/img/'.$table->foto_petugas); ?>" width="100"> -->
                             </td>
                             <td>2023-05-03<!-- <php echo $table->tanggal_absen ?> --></td>
+                            <td><a href="#" class="btn btn-sm btn-warning">Menunggu Verifikasi</a></td>
                             <td align="center">
                                 <a href="" 
                                 class="btn btn-sm btn-info"><i class="fa fa-check"></i> Terima</a>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2023 at 04:14 PM
+-- Generation Time: May 24, 2023 at 07:07 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -28,10 +28,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `absen` (
-  `id_absen` char(10) NOT NULL,
-  `tanggal_absen` date NOT NULL,
-  `foto_absen` varchar(50) NOT NULL,
-  `id_petugas` char(6) NOT NULL
+  `id_absen` int(11) NOT NULL,
+  `nama_pengguna` varchar(30) NOT NULL,
+  `persyaratan` varchar(120) NOT NULL,
+  `foto` text NOT NULL,
+  `waktu_absen` datetime NOT NULL,
+  `status` enum('Menunggu Verifikasi','Hadir','Tidak Hadir') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -66,7 +68,7 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`id_pengguna`, `email`, `password`, `nama_pengguna`, `role`) VALUES
-(3, 'alvin.austin4@gmail.com', '$2y$10$DJzs64too3JRZBkMgLYea.O1j2nFh2GH4ReMcIRAmyPo0DdlIb1VO', 'alvin', 'admin'),
+(3, 'alvin.austin4@gmail.com', '$2y$10$srPyaIqBlGYz09lGJ8HGqe/xpJXiwCOrZ1HEJaswu1iRG9HywsGqm', 'alvin', 'admin'),
 (4, 'raihanramadhan09@gmail.com', '$2y$10$dUtvoyNJygo2CXCSGfYc2.36PmkLIgB8Xlu9dqrL1dJR0XtWhi3xu', 'Rehan Wangsaf', 'petugas'),
 (5, 'yusup@gmail.com', '$2y$10$JJb0fiQMxeYg3v/VgkkFYeJNRNPLkZWSr1ZiFbCmTcT.ttAFa4Xve', 'Yusup Supriatna', 'petugas');
 
@@ -78,8 +80,7 @@ INSERT INTO `pengguna` (`id_pengguna`, `email`, `password`, `nama_pengguna`, `ro
 -- Indexes for table `absen`
 --
 ALTER TABLE `absen`
-  ADD PRIMARY KEY (`id_absen`),
-  ADD UNIQUE KEY `id_petugas` (`id_petugas`);
+  ADD PRIMARY KEY (`id_absen`);
 
 --
 -- Indexes for table `laporan`
@@ -99,10 +100,16 @@ ALTER TABLE `pengguna`
 --
 
 --
+-- AUTO_INCREMENT for table `absen`
+--
+ALTER TABLE `absen`
+  MODIFY `id_absen` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
