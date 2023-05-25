@@ -58,7 +58,7 @@ class DataPetugas extends CI_Controller{
         redirect('admin/DataPetugas');
     } 
 }
-
+ 
 public function update(){
   $this->ModelPetugas->update();
   if ($this->db->affected_rows() > 0){
