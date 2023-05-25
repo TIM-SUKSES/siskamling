@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2023 at 04:31 AM
+-- Generation Time: May 25, 2023 at 04:48 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -41,7 +41,8 @@ CREATE TABLE `absen` (
 --
 
 INSERT INTO `absen` (`id_absen`, `nama_pengguna`, `persyaratan`, `foto`, `waktu_absen`, `status`) VALUES
-(1, 'Ina Abdul Nasir', 'Foto Bebas', 'maling.jpg', '2023-05-25 09:28:24', 'Menunggu Verifikasi');
+(1, 'Nabil Muthi Maulani', 'Foto Bebas', 'foto-selfie.png', '2023-05-25 09:28:24', 'Menunggu Verifikasi'),
+(2, 'Raihan Ramadhan', 'Foto depan gapura', 'foto-selfie.png', '2023-05-25 09:35:18', 'Menunggu Verifikasi');
 
 -- --------------------------------------------------------
 
@@ -111,7 +112,7 @@ ALTER TABLE `pengguna`
 -- AUTO_INCREMENT for table `absen`
 --
 ALTER TABLE `absen`
-  MODIFY `id_absen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_absen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
