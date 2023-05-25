@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2023 at 04:48 AM
+-- Generation Time: May 25, 2023 at 04:50 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -81,6 +81,25 @@ INSERT INTO `pengguna` (`id_pengguna`, `email`, `password`, `nama_pengguna`, `ro
 (5, 'yusup@gmail.com', '$2y$10$JJb0fiQMxeYg3v/VgkkFYeJNRNPLkZWSr1ZiFbCmTcT.ttAFa4Xve', 'Yusup Supriatna', 'petugas'),
 (8, 'nabilmuthi77@gmail.com', '$2y$10$hvc3hoWJs3g3qkm1UwXVpO6QRkt1tvzlox2bMMz5RCwlKOIUyuI7K', 'nabil muthi', 'petugas');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `roles`
+--
+
+CREATE TABLE `roles` (
+  `id_roles` int(11) NOT NULL,
+  `nama_roles` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`id_roles`, `nama_roles`) VALUES
+(1, 'petugas'),
+(2, 'admin');
+
 --
 -- Indexes for dumped tables
 --
@@ -105,6 +124,12 @@ ALTER TABLE `pengguna`
   ADD PRIMARY KEY (`id_pengguna`);
 
 --
+-- Indexes for table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id_roles`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -119,6 +144,12 @@ ALTER TABLE `absen`
 --
 ALTER TABLE `pengguna`
   MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id_roles` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
