@@ -6,7 +6,7 @@ class MasukPetugas extends CI_Controller{
   public function index(){
       $data['title'] = 'Absen Masuk Petugas';
       $data['absen_cihuy'] = $this->db->get('absen')->result();
-      $this->load->view('admin/templates/admin-header');
+      $this->load->view('admin/templates/admin-header', $data);
       $this->load->view('admin/templates/admin-topbar');
       $this->load->view('admin/templates/admin-sidebar');
       $this->load->view('admin/masuk-petugas', $data);
