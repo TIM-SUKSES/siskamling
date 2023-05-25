@@ -9,13 +9,13 @@
     </div>
     <!-- header -->
     <div class="box-body">
-      <form action="" method="post" enctype="multipart/form-data">
+      <form action="<?php echo site_url('admin/DataPetugas/simpanPetugas'); ?>" method="post" enctype="multipart/form-data">
         <table id="table" width="30%">
           <tr>
             <td>
               <div class="form-group">
-                <label for="nama">Nama <span class="text-danger">*</span></label>
-                <input type="text" name="nama" id="nama" class="form-control" placeholder="Masukkan Nama" required>
+                <label for="nama_pengguna">Nama <span class="text-danger">*</span></label>
+                <input type="text" name="nama_pengguna" id="nama" class="form-control" placeholder="Masukkan Nama" required>
               </div>
             </td>
           </tr> 
@@ -38,11 +38,11 @@
           <tr>
             <td>
               <div class="form-group">
-                <label for="level">Roles <span class="text-danger">*</span></label>
-                <select name="level" class="form-control form-control-user" required>
-                  <!-- <php foreach ($roles as $r) { ?>
-                  <option value="<= $r['id_roles'];?>"><= $r['nama_roles'];?></option>
-                  <php } ?>-->
+                <label for="role">Roles <span class="text-danger">*</span></label>
+                <select name="role" class="form-control form-control-user" required>
+                  <?php foreach ($roles as $r) { ?>
+                  <option value="<?php echo $r['id_roles']; ?>"> <?php echo $r['nama_roles']; ?> </option>
+                  <?php } ?>
                 </select>
               </div>
             </td>

@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="<?php echo base_url('assets/'); ?>splidejs/splide.min.css">
   <script src="<?php echo base_url('assets/'); ?>splidejs/splide.min.js"></script>
   <style>
+    /* CSS Form Absen Section */
     .card-form {
       background-color: #434343;
       padding: 80px 60px;
@@ -85,6 +86,30 @@
         width: 100%;
       }
     }
+
+    /* CSS Navbar Dropdown */
+    .dropdown-nav-menu {
+      width: 140px;
+      position: absolute;
+      top: 40px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      background-color: #fff;
+      font-size: 16px;
+    }
+    .dropdown-nav-item {
+      display: block;
+      text-decoration: none;
+      color: #000000;
+      margin-bottom: 5px;
+      transition: 0.5s ease;
+    }
+    .hidden-nav {
+      display: none;
+    }
+    .dropdown-nav-item:hover {
+      color: turquoise;
+    }
   </style>
 </head>
 <body>
@@ -103,8 +128,16 @@
         <li class="menu-item">
           <a class="menu-link" href="<?php echo base_url('petugas/Blogpetugas'); ?>">Blog</a>
         </li>
+        <li class="menu-item dropdown-menu-item" style="position: relative;">
+          <a class="menu-link" href="#"><?php echo $this->session->userdata('nama_pengguna'); ?> <i class="fa-solid fa-caret-down"></i></i><!-- Nama Dipanggil dari database -->
+          <div class="dropdown-nav-menu hidden-nav">
+            <a class="dropdown-nav-item" href="<?php echo base_url('petugas/UbahPassword'); ?>"><i class="fa fa-gear"></i> Pengaturan</a>
+            <a class="dropdown-nav-item" href="<?php echo base_url('auth/logout'); ?>"><i class="fa fa-sign-out"></i> Keluar</a>
+          </div>
+        </li>
       </ul>
     </nav>
+
 
     <!-- Section Welcome -->
     <section id="beranda" class="section-welcome">

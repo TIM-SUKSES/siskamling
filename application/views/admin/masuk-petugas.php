@@ -16,27 +16,49 @@
                   <th>Persyaratan</th>
                   <th>Foto</th>
                   <th>Tanggal Input</th>
+                  <th>Status</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                    <!-- <php $id_petugas = 1; foreach($tabel as $table) : ?> -->
+                <?php
+            $no = 1;
+            foreach ($absen_cihuy as $isi) { ?>
+
                         <tr>
-                            <td>1<!-- <php echo $id_petugas++ ?> --></td>
-                            <td>Alvin Austin<!-- <php echo $table->nama_petugas ?> --></td>
-                            <td>Foto Depan Pos Ronda<!-- <php echo $table->persyaratan ?> --></td>
+                            <td><?= $no++ ?></td>
+                            <td><?= $isi->nama_pengguna; ?></td>
+                            <td><?= $isi->persyaratan; ?></td>
                             <td>
-                              <img src="<?php echo base_url('assets/img/foto-selfie.png'); ?>" width="100"><!-- <img src="<php echo base_url('assets/img/'.$table->foto_petugas); ?>" width="100"> -->
+                            <img src="<?= base_url('assets/img/') . $isi->foto; ?>" class="img-thumbnail" width='80' height='80'>
                             </td>
-                            <td>2023-05-03<!-- <php echo $table->tanggal_absen ?> --></td>
+                            <td><?= $isi->waktu_absen; ?></td>
+                            <td> <div 
+                            <?php if ($isi->status == "Hadir") {
+                              echo "class='btn btn-sm btn-success'";
+                            } elseif ($isi->status == "Tidak Hadir") {
+                              echo "class='btn btn-sm btn-danger'";
+                            } else {
+                              echo "class='btn btn-sm btn-warning'";
+                            } ?>> <?= $isi->status; ?> </div> </td>
+
                             <td align="center">
-                                <a href="" 
+                            <?php if ($isi->status == "Hadir" or $isi->status == "Tidak Hadir") {
+                              echo "<button class='btn btn-sm btn-success'><i class='fa fa-check'></i> Confirmed</button>";
+                            } else {
+                              ?>
+
+                              <a href="<?= base_url('admin/MasukPetugas/terima/') . $isi->id_absen; ?>"  
                                 class="btn btn-sm btn-info"><i class="fa fa-check"></i> Terima</a>
-                                <a href="" 
+                              <a href="<?= base_url('admin/MasukPetugas/tolak/') . $isi->id_absen; ?>" 
                                 class="btn btn-sm btn-danger"><i class="bi bi-x-lg"></i> Tolak</a>
+                              <?php
+                            }
+                            ?>
+                                
                             </td>
                         </tr>
-                    <!-- <php endforeach; ?> -->
+                        <?php } ?>
                 </tbody>
                 </table>
             </div>

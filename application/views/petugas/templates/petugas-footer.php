@@ -5,6 +5,14 @@
   </footer>
 
   <script>
+    // Dropdown Menu
+    const dropdownMenu = document.querySelector('.dropdown-menu-item');
+    const dropdownItem = document.querySelector('.dropdown-nav-menu');
+
+    dropdownMenu.addEventListener('click', function () {
+        dropdownItem.classList.toggle('hidden-nav');
+    });
+    
     // JS Random Text Absen Petugas Start
     window.onload = function () {
       // Membuat array dari teks yang akan diacak

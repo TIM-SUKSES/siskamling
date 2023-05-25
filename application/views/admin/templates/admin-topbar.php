@@ -28,7 +28,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="<?php echo base_url('assets/img/out..png'); ?>" class="user-image" alt="User Image">
-               <span class="hidden-xs">Herman</span> <!-- Nama diambil dari database -->
+               <span class="hidden-xs"><?php echo $this->session->userdata('nama_pengguna'); ?></span> <!-- Nama diambil dari database -->
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -36,15 +36,15 @@
                 <img src="<?php echo base_url('assets/img/out..png'); ?>" class="img-circle" alt="User Image">
 
                 <p>
-                Herman - Ketua RT <!-- Nama diambil dari database -->
-                  <small>Admin SISKAMLING. 2023-05-03</small> <!-- Tanggal diambil dari database -->
+                <?php echo $this->session->userdata('nama_pengguna'); ?><!-- Nama diambil dari database -->
+                  <small>Admin SISKAMLING</small> <!-- Tanggal diambil dari database -->
                 </p>
               </li>
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="text-center">
-                  <a href="" class="btn btn-default btn-flat"> <i class="fa fa-sign-out"></i> Logout</a>
+                  <a href="<?php echo base_url('auth/logout'); ?>" class="btn btn-default btn-flat"> <i class="fa fa-sign-out"></i> Logout</a>
                 </div>
               </li>
             </ul>
