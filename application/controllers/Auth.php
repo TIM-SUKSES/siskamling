@@ -35,7 +35,7 @@ class Auth extends CI_Controller{
                          'role' => $cek_user->role
                     ];
                     $this->session->set_userdata($data_session);
-                    redirect("Petugas/HomePetugas");
+                    redirect("petugas/HomePetugas");
                 }
 
             }else { 
