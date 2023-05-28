@@ -23,7 +23,7 @@
                 <tbody>
                 <?php
             $no = 1;
-            foreach ($absen_cihuy as $isi) { ?>
+            foreach ($absen_petugas as $isi) { ?>
 
                         <tr>
                             <td><?= $no++ ?></td>

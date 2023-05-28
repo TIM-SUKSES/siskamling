@@ -16,16 +16,17 @@
         </div>
         <div class="form-container">
           <h2 class="text-white">Ubah Password Petugas</h2>
-          <form>
+          <?php echo $this->session->flashdata('message'); ?>
+          <form action="<?php echo base_url('petugas/UbahPassword/index'); ?>" method="post">
             <label for="password" class="text-white">Password Lama</label>
             <input type="password" id="password" name="password">
-
+            <?php echo form_error('password', '<small class="text-warning pl-1">', '</small>'); ?>
             <label for="new_password1" class="text-white">Password Baru</label>
             <input type="password" id="new_password1" name="new_password1">
-
+            <?php echo form_error('new_password1', '<small class="text-warning pl-1">', '</small>'); ?>
             <label for="new_password2" class="text-white">Konfirmasi Password</label>
             <input type="password" id="new_password2" name="new_password2">
-
+            <?php echo form_error('new_password2', '<small class="text-warning pl-1">', '</small>'); ?>
             <button type="submit">Ganti Password</button>
           </form>
         </div>
