@@ -16,7 +16,7 @@ class UbahPassword extends CI_Controller{
 
     $data['pengguna'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
 
-    $this->form_validation->set_rules('password', 'Old Password', 'required|trim');
+    $this->form_validation->set_rules('current_password', 'Current Password', 'required|trim');
     $this->form_validation->set_rules('new_password1', 'New Password', 'required|trim|min_length[3]|matches[new_password2]');
     $this->form_validation->set_rules('new_password2', 'Confirmation Password', 'required|trim|min_length[3]|matches[new_password1]');
 
@@ -26,10 +26,10 @@ class UbahPassword extends CI_Controller{
       $this->load->view('petugas/templates/petugas-footer', $data);
     } else{
 
-      $current_password = $this->input->post('password');
+      $current_password = $this->input->post('current_password');
       $new_password = $this->input->post('new_password1');
 
-      if (password_verify($current_password, $data['pengguna']['password'])){
+      if (!password_verify($current_password, $data['pengguna']['password'])){
         $this->session->set_flashdata('message', '<div class="alert alert-danger"
         role="alert"> Password Lama Salah! </div>');
         redirect('petugas/UbahPassword');
@@ -46,7 +46,7 @@ class UbahPassword extends CI_Controller{
           $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
           
           $this->db->set('password', $password_hash);
-          $this->db->where('id_pengguna', $this->session->userdata('id_pengguna'));
+          $this->db->where('email', $this->session->userdata('email'));
           $this->db->update('pengguna');
   
           $this->session->set_flashdata('message', '<div class="alert alert-success"
