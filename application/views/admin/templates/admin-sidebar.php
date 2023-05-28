@@ -36,7 +36,7 @@
           </a>
         </li>
         <li class="<?php echo $this->uri->segment(2) == 'logout' ? 'active' : '' ?> ">
-          <a href="">
+          <a href="<?php echo base_url('auth/logout'); ?>">
             <i class="fa fa-sign-out"></i> <span>Logout</span>
           </a>
         </li>
