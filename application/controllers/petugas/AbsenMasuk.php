@@ -13,7 +13,16 @@ class AbsenMasuk extends CI_Controller{
 
   public function absenPetugas()
   {
-    
+    $this->load->model('ModelPetugas');
+    $this->ModelPetugas->simpanAbsen();
+    $this->session->set_flashdata(
+			'message2',
+			'<div class="alert alert-success alert-dismissible fade show" role="alert">
+			<strong>Absen Berhasil Dilakukan!</strong>
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		  </div>'
+		);
+    redirect('petugas/AbsenMasuk');
   }
 
 }
