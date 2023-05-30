@@ -17,6 +17,20 @@ class AbsenIzin extends CI_Controller{
     $this->load->view('petugas/templates/petugas-footer', $data);
   }
 
+  public function IzinPetugas()
+  {
+    $this->load->model('ModelPetugas');
+    $this->ModelPetugas->simpanIzin();
+    $this->session->set_flashdata(
+			'message2',
+			'<div class="alert alert-success alert-dismissible fade show" role="alert">
+			<strong>Surat Izin Berhasil Terkirim!</strong>
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		  </div>'
+		);
+    redirect('petugas/AbsenIzin');
+  }
+
 }
 
 ?>

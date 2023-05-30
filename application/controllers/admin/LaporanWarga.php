@@ -12,6 +12,7 @@ class LaporanWarga extends CI_Controller{
 
   public function index(){
       $data['title'] = 'Laporan Warga';
+      $data['laporan_warga'] = $this->db->get('laporan')->result();
       $this->load->view('admin/templates/admin-header', $data);
       $this->load->view('admin/templates/admin-topbar');
       $this->load->view('admin/templates/admin-sidebar');

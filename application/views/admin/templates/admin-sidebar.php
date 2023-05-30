@@ -30,6 +30,11 @@
             <i class="fa fa-credit-card"></i> <span>Absen Izin Petugas</span>
           </a>
         </li>
+        <li class="<?php echo $this->uri->segment(2) == 'JadwalPetugas' ? 'active' : '' ?> ">
+          <a href="<?php echo site_url('admin/JadwalPetugas'); ?>">
+          <i class="fa fa-calendar" aria-hidden="true"></i> <span>Jadwal Petugas</span>
+          </a>
+        </li>
         <li class="<?php echo $this->uri->segment(2) == 'LaporanWarga' ? 'active' : '' ?> ">
           <a href="<?php echo site_url('admin/LaporanWarga'); ?>">
             <i class="fa fa-envelope-open"></i> <span>Laporan Warga</span>

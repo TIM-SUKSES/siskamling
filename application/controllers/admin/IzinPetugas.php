@@ -12,6 +12,7 @@ class IzinPetugas extends CI_Controller{
 
   public function index(){
       $data['title'] = 'Absen Izin Petugas';
+      $data['izinpetugas'] = $this->db->get('izin')->result();
       $this->load->view('admin/templates/admin-header', $data);
       $this->load->view('admin/templates/admin-topbar');
       $this->load->view('admin/templates/admin-sidebar');

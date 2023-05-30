@@ -12,24 +12,24 @@
                 <thead>
                 <tr>
                   <th>No.</th>
-                  <th>Nama</th>
+                  <th>Nama Petugas</th>
                   <th>Alasan Izin</th>
                   <th>Foto</th>
                   <th>Tanggal Input</th>
                 </tr>
                 </thead>
                 <tbody>
-                    <!-- <php $id_petugas = 1; foreach($tabel as $table) : ?> -->
+                    <?php $id_izin = 1; foreach($izinpetugas as $izin) : ?>
                         <tr>
-                            <td>1<!-- <php echo $id_petugas++ ?> --></td>
-                            <td>Alvin Austin<!-- <php echo $table->nama_petugas ?> --></td>
-                            <td>Izin Karena Sakit<!-- <php echo $table->persyaratan ?> --></td>
+                            <td><?php echo $id_izin++ ?></td>
+                            <td><?php echo $izin->nama_pengguna ?></td>
+                            <td><?php echo $izin->alasan ?></td>
                             <td>
-                              <img src="<?php echo base_url('assets/img/surat-keterangan-dokter.jpg'); ?>" width="100"><!-- <img src="<php echo base_url('assets/img/'.$table->foto_petugas); ?>" width="100"> -->
+                              <img src="<?php echo base_url('assets/img/'.$izin->foto); ?>" width="100">
                             </td>
-                            <td>2023-05-03<!-- <php echo $table->tanggal_absen ?> --></td>
+                            <td><?php echo $izin->tanggal_input ?></td>
                         </tr>
-                    <!-- <php endforeach; ?> -->
+                    <?php endforeach; ?>
                 </tbody>
                 </table>
             </div>
