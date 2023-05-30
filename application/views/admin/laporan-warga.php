@@ -14,7 +14,7 @@
                   <th>No.</th>
                   <th>Nama</th>
                   <th>Alamat</th>
-                  <td>Pesan</td>
+                  <th>Pesan</th>
                   <th>Foto Lampiran</th>
                   <th>Tanggal Input</th>
                 </tr>
