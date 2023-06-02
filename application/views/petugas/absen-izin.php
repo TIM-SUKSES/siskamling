@@ -24,6 +24,7 @@
             <label for="camera" class="text-white">Bukti Lampiran</label>
             <input type="file" accept="image/*;capture=gallery" id="foto" name="foto">
             <?= $this->session->flashdata('message'); ?>
+            <input type="hidden" name="status" value="Menunggu Verifikasi">
             <button type="submit">Submit</button>
           </form>
         </div>

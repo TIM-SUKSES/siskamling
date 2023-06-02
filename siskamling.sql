@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2023 at 04:34 PM
+-- Generation Time: Jun 02, 2023 at 07:55 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -58,15 +58,17 @@ CREATE TABLE `izin` (
   `nama_pengguna` varchar(50) NOT NULL,
   `alasan` text NOT NULL,
   `foto` text NOT NULL,
-  `tanggal_input` datetime NOT NULL DEFAULT current_timestamp()
+  `tanggal_input` datetime NOT NULL DEFAULT current_timestamp(),
+  `status` enum('Menunggu Verifikasi','Diterima','Ditolak') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `izin`
 --
 
-INSERT INTO `izin` (`id_izin`, `nama_pengguna`, `alasan`, `foto`, `tanggal_input`) VALUES
-(1, 'Alvin Austin', 'Sakit Hati', '8c5-removebg-preview.png', '2023-05-30 21:32:26');
+INSERT INTO `izin` (`id_izin`, `nama_pengguna`, `alasan`, `foto`, `tanggal_input`, `status`) VALUES
+(1, 'Alvin Austin', 'Sakit Hati', '8c5-removebg-preview.png', '2023-05-30 21:32:26', 'Ditolak'),
+(2, 'Nabil Muthi Maulani', 'Sakit', 'surat-keterangan-dokter1.jpg', '2023-06-02 12:44:06', 'Diterima');
 
 -- --------------------------------------------------------
 
@@ -231,7 +233,7 @@ ALTER TABLE `absen`
 -- AUTO_INCREMENT for table `izin`
 --
 ALTER TABLE `izin`
-  MODIFY `id_izin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_izin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `jadwal`

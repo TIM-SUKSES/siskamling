@@ -94,7 +94,8 @@ class ModelPetugas extends CI_Model {
           'nama_pengguna' => htmlspecialchars($this->input->post('nama_pengguna', true)),
           'alasan' => htmlspecialchars($this->input->post('alasan', true)),
           'foto' => $fileName,
-          'tanggal_input' => date('Y-m-d H:i:s')
+          'tanggal_input' => date('Y-m-d H:i:s'),
+          'status' => htmlspecialchars($this->input->post('status', true))
       ];
 
       $this->db->insert('izin', $data);

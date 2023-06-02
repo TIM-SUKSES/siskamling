@@ -44,7 +44,7 @@
 
                             <td align="center">
                             <?php if ($isi->status == "Hadir" or $isi->status == "Tidak Hadir") {
-                              echo "<button class='btn btn-sm btn-success'><i class='fa fa-check'></i> Confirmed</button>";
+                              echo "<button class='btn btn-sm btn-success'><i class='fa fa-check'></i> Selesai</button>";
                             } else {
                               ?>
 

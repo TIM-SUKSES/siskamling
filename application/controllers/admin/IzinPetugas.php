@@ -20,6 +20,26 @@ class IzinPetugas extends CI_Controller{
       $this->load->view('admin/templates/admin-footer');
   }
 
+  public function terima($id) {
+    $data = [
+      'status' => "Diterima"
+  ];
+
+  $this->db->where('id_izin', $id);
+  $this->db->update('izin', $data);
+  redirect('admin/IzinPetugas');
+  }
+
+  public function tolak($id) {
+    $data = [
+      'status' => "Ditolak"
+  ];
+
+  $this->db->where('id_izin', $id);
+  $this->db->update('izin', $data);
+  redirect('admin/IzinPetugas');
+  }
+
 }
 
 ?>
