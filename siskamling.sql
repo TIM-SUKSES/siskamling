@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2023 at 08:03 AM
+-- Generation Time: Jun 05, 2023 at 02:24 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -70,7 +70,7 @@ CREATE TABLE `izin` (
 
 CREATE TABLE `jadwal` (
   `id_jadwal` int(11) NOT NULL,
-  `nama_pengguna` int(11) NOT NULL,
+  `nama_pengguna` varchar(30) NOT NULL,
   `hari` varchar(12) NOT NULL,
   `jam_masuk` time NOT NULL,
   `jam_keluar` time NOT NULL,
@@ -82,9 +82,11 @@ CREATE TABLE `jadwal` (
 --
 
 INSERT INTO `jadwal` (`id_jadwal`, `nama_pengguna`, `hari`, `jam_masuk`, `jam_keluar`, `status`) VALUES
-(3, 9, 'Senin', '06:00:00', '17:00:00', 0),
-(4, 4, 'Jumat', '06:00:00', '15:00:00', 0),
-(5, 5, 'Rabu', '06:00:00', '17:00:00', 0);
+(24, '9', 'Kamis', '06:00:00', '17:00:00', 0),
+(26, '9', 'Senin', '06:00:00', '18:00:00', 0),
+(27, '4', 'Kamis', '06:00:00', '17:00:00', 0),
+(28, '4', 'Minggu', '06:00:00', '18:00:00', 0),
+(29, '9', 'Jumat', '06:00:00', '15:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -194,9 +196,7 @@ ALTER TABLE `izin`
 -- Indexes for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  ADD PRIMARY KEY (`id_jadwal`),
-  ADD UNIQUE KEY `id_pengguna` (`nama_pengguna`),
-  ADD UNIQUE KEY `nama_pengguna` (`nama_pengguna`);
+  ADD PRIMARY KEY (`id_jadwal`);
 
 --
 -- Indexes for table `laporan`
@@ -208,8 +208,7 @@ ALTER TABLE `laporan`
 -- Indexes for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  ADD PRIMARY KEY (`id_pengguna`),
-  ADD UNIQUE KEY `nama_pengguna` (`nama_pengguna`);
+  ADD PRIMARY KEY (`id_pengguna`);
 
 --
 -- Indexes for table `roles`
@@ -243,7 +242,7 @@ ALTER TABLE `izin`
 -- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `laporan`
