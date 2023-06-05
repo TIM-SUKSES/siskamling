@@ -9,17 +9,12 @@
   <div class="jadwal-container">
     <h1>JADWAL SISKAMLING</h1>
     <hr>
+    <?php foreach($petugas as $pt) : ?>
     <div class="cards-jadwal">
       <div class="card-jadwal">
-        <h3>SENIN</h3> <!-- Isi dengan database  -->
+        <h3><?php echo $pt->hari ?></h3> <!-- Isi dengan database  -->
         <hr>
-        <ul>
-          <li>Alvin Austin</li> <!-- Isi dengan database  -->
-          <li>Raihan Ramadhan</li> <!-- Isi dengan database  -->
-          <li>Yusup Supriatna</li> <!-- Isi dengan database  -->
-          <li>Nabil Muthi</li> <!-- Isi dengan database  -->
-          <li>Fadly Faturrohman</li> <!-- Isi dengan database  -->
-        </ul>
+        <p align="center"><?php echo $pt->jam_masuk ?> - <?php echo $pt->jam_keluar ?></p>
         <hr>
         <div class="btn-jadwal">
           <a href="<?php echo base_url('petugas/AbsenMasuk'); ?>">
@@ -34,7 +29,7 @@
           </a>
         </div>
       </div>
-      <div class="card-jadwal">
+      <!-- <div class="card-jadwal">
         <h3>SELASA</h3>
         <hr>
         <ul>
@@ -177,8 +172,9 @@
             </button>
           </a>
         </div>
-      </div>
+      </div> -->
     </div>
+    <?php endforeach; ?>
   </div>
 </section>
 <!-- Jadwal Section End -->

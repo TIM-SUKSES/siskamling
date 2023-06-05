@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2023 at 07:55 AM
+-- Generation Time: Jun 05, 2023 at 08:03 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -62,14 +62,6 @@ CREATE TABLE `izin` (
   `status` enum('Menunggu Verifikasi','Diterima','Ditolak') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `izin`
---
-
-INSERT INTO `izin` (`id_izin`, `nama_pengguna`, `alasan`, `foto`, `tanggal_input`, `status`) VALUES
-(1, 'Alvin Austin', 'Sakit Hati', '8c5-removebg-preview.png', '2023-05-30 21:32:26', 'Ditolak'),
-(2, 'Nabil Muthi Maulani', 'Sakit', 'surat-keterangan-dokter1.jpg', '2023-06-02 12:44:06', 'Diterima');
-
 -- --------------------------------------------------------
 
 --
@@ -78,11 +70,21 @@ INSERT INTO `izin` (`id_izin`, `nama_pengguna`, `alasan`, `foto`, `tanggal_input
 
 CREATE TABLE `jadwal` (
   `id_jadwal` int(11) NOT NULL,
+  `nama_pengguna` int(11) NOT NULL,
   `hari` varchar(12) NOT NULL,
-  `jam_masuk` datetime NOT NULL,
-  `jam_keluar` datetime NOT NULL,
-  `shift` enum('pagi','malam') NOT NULL
+  `jam_masuk` time NOT NULL,
+  `jam_keluar` time NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `jadwal`
+--
+
+INSERT INTO `jadwal` (`id_jadwal`, `nama_pengguna`, `hari`, `jam_masuk`, `jam_keluar`, `status`) VALUES
+(3, 9, 'Senin', '06:00:00', '17:00:00', 0),
+(4, 4, 'Jumat', '06:00:00', '15:00:00', 0),
+(5, 5, 'Rabu', '06:00:00', '17:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -119,21 +121,20 @@ CREATE TABLE `pengguna` (
   `email` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `nama_pengguna` varchar(30) NOT NULL,
-  `role` enum('petugas','admin') NOT NULL,
-  `status` int(11) NOT NULL
+  `role` enum('petugas','admin') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `pengguna`
 --
 
-INSERT INTO `pengguna` (`id_pengguna`, `email`, `password`, `nama_pengguna`, `role`, `status`) VALUES
-(3, 'alvin.austin4@gmail.com', '$2y$10$srPyaIqBlGYz09lGJ8HGqe/xpJXiwCOrZ1HEJaswu1iRG9HywsGqm', 'alvin', 'admin', 0),
-(4, 'raihanramadhan09@gmail.com', '$2y$10$tlmzyt0I6OB.ui0x5sJIfOuyWuRG48WVAZqox7i76aXN/OtcxXba6', 'Raihan Ramadhan', 'petugas', 0),
-(5, 'yusup@gmail.com', '$2y$10$7a4M47bjtYSwotb3IPmebu2rh92ymyh71/35y2Q0641V6nrMHy6Oq', 'Yusup Supriatna', 'petugas', 0),
-(8, 'nabilmuthi77@gmail.com', '$2y$10$iklBKu8CAss5S152ue2fgOwB/Yp2w1k65B0Tu941BO/TinRyTBaMu', 'Nabil Muthi Maulani', 'petugas', 0),
-(9, 'wandesay85@gmail.com', '$2y$10$Y.woT8ZJpxmj.WptxfBvFueFmtkgQxd/iVf2Y6iVL351FcWaw.wHu', 'Alvin Austin', 'petugas', 0),
-(10, 'fadly@gmail.com', '$2y$10$gFIdgXa6Wx0XTXo.DIZlyeBo.ThbWXYRzCe.wauYNI9d5cnlZzmyi', 'Fadly Faturrohman', 'petugas', 0);
+INSERT INTO `pengguna` (`id_pengguna`, `email`, `password`, `nama_pengguna`, `role`) VALUES
+(3, 'alvin.austin4@gmail.com', '$2y$10$srPyaIqBlGYz09lGJ8HGqe/xpJXiwCOrZ1HEJaswu1iRG9HywsGqm', 'alvin', 'admin'),
+(4, 'raihanramadhan09@gmail.com', '$2y$10$tlmzyt0I6OB.ui0x5sJIfOuyWuRG48WVAZqox7i76aXN/OtcxXba6', 'Raihan Ramadhan', 'petugas'),
+(5, 'yusup@gmail.com', '$2y$10$iUy/PBLQ/DmCc8K5SWczpusrsnWb0SKeeDdAgPju3qq8bJu8VaL3W', 'Yusup Supriatna', 'petugas'),
+(8, 'nabilmuthi77@gmail.com', '$2y$10$iklBKu8CAss5S152ue2fgOwB/Yp2w1k65B0Tu941BO/TinRyTBaMu', 'Nabil Muthi Maulani', 'petugas'),
+(9, 'wandesay85@gmail.com', '$2y$10$fr1Y9JGvdGfaFnHfW21XjONlQGQT8tqX67GKWeR319xOCSR25dYrG', 'Alvin Austin', 'petugas'),
+(10, 'fadly@gmail.com', '$2y$10$gFIdgXa6Wx0XTXo.DIZlyeBo.ThbWXYRzCe.wauYNI9d5cnlZzmyi', 'Fadly Faturrohman', 'petugas');
 
 -- --------------------------------------------------------
 
@@ -193,7 +194,9 @@ ALTER TABLE `izin`
 -- Indexes for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  ADD PRIMARY KEY (`id_jadwal`);
+  ADD PRIMARY KEY (`id_jadwal`),
+  ADD UNIQUE KEY `id_pengguna` (`nama_pengguna`),
+  ADD UNIQUE KEY `nama_pengguna` (`nama_pengguna`);
 
 --
 -- Indexes for table `laporan`
@@ -205,7 +208,8 @@ ALTER TABLE `laporan`
 -- Indexes for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  ADD PRIMARY KEY (`id_pengguna`);
+  ADD PRIMARY KEY (`id_pengguna`),
+  ADD UNIQUE KEY `nama_pengguna` (`nama_pengguna`);
 
 --
 -- Indexes for table `roles`
@@ -239,7 +243,7 @@ ALTER TABLE `izin`
 -- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `laporan`

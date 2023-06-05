@@ -32,7 +32,7 @@
         </li>
         <li class="<?php echo $this->uri->segment(2) == 'JadwalPetugas' ? 'active' : '' ?> ">
           <a href="<?php echo site_url('admin/JadwalPetugas'); ?>">
-          <i class="fa fa-calendar" aria-hidden="true"></i> <span>Jadwal Petugas</span>
+          <i class="fa fa-calendar"></i> <span>Jadwal Petugas</span>
           </a>
         </li>
         <li class="<?php echo $this->uri->segment(2) == 'LaporanWarga' ? 'active' : '' ?> ">

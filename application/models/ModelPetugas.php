@@ -100,4 +100,5 @@ class ModelPetugas extends CI_Model {
 
       $this->db->insert('izin', $data);
     }
+
   }
