@@ -43,7 +43,7 @@ class JadwalModel extends CI_Model
     public function updateStatus()
     {
         $data = ['status' => 1];
-        $this->db->where('id_jadwal', $this->input->post('id_jadwal'));
+        $this->db->where('id_jadwal', $this->input->post('nama_pengguna'));
         $this->db->update('jadwal', $data);
     }
 }

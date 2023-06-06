@@ -20,6 +20,20 @@ class JadwalPetugas extends CI_Controller{
     $this->load->view('petugas/templates/petugas-footer', $data);
   }
   
+  public function petugasAbsen()
+  {
+    $this->JadwalModel->updateStatus();
+    $this->ModelPetugas->simpanAbsen();
+    $this->ModelPetugas->simpanIzin();
+    if($this->db->affected_rows() > 0)
+    {
+      $result = ['success' => true];
+    } else {
+      $result = ['success' => false];
+    }
+
+    echo json_encode($result);
+  }
 
 }
 

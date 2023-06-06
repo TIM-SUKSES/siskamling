@@ -28,7 +28,7 @@ class AbsenMasuk extends CI_Controller{
 			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		  </div>'
 		);
-    redirect('petugas/AbsenMasuk');
+    redirect('petugas/JadwalPetugas');
   }
 
 }

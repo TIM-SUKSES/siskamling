@@ -10,7 +10,6 @@
     <h1>ABSEN PETUGAS</h1>
     <hr>
     <div class="card-form">
-    <?= $this->session->flashdata('message2'); ?>
       <div class="absen-container">
         <div class="image-container">
           <img src="<?php echo base_url('assets/'); ?>img/icon/absen-icon.png" alt="Absen Image">
