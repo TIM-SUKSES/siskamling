@@ -30,7 +30,7 @@
                             <td><?= $isi->nama_pengguna; ?></td>
                             <td><?= $isi->persyaratan; ?></td>
                             <td>
-                            <img src="<?= base_url('assets/img/') . $isi->foto; ?>" class="img-thumbnail" width='80' height='80'>
+                            <img data-toggle="modal" data-target="#myModal<?= $isi->id_absen;?>" src="<?= base_url('assets/img/') . $isi->foto; ?>" class="img-thumbnail" width='80' height='80'>
                             </td>
                             <td><?= $isi->waktu_absen; ?></td>
                             <td> <div 
@@ -63,4 +63,29 @@
                 </table>
             </div>
 </div>
+
+
+<!-- Modal -->
+<?php foreach ($absen_petugas as $isi) { ?>
+
+<div class="modal fade" id="myModal<?= $isi->id_absen;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h4 class="modal-title text-danger" id="myModalLabel"><b> <?= $isi->foto ;?> </b></h4>
+	      </div>
+	      <div class="modal-body">
+	      	<center>	
+	        	<img src="<?= base_url('assets/img/') . $isi->foto; ?>" alt="" class="img-thumbnail">
+	        </center>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>	
+	      </div>
+	    </div>
+	  </div>
+</div>
+
+<?php } ?>
+
 </script>

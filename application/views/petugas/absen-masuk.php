@@ -16,10 +16,11 @@
         </div>
         <div class="form-container">
           <h2 class="text-white">Ruang Absen Petugas</h2>
-          <form action="<?php echo site_url('petugas/AbsenMasuk/absenPetugas'); ?>" method="post" enctype="multipart/form-data">
+          <form action="<?php echo site_url('petugas/AbsenMasuk/absenPetugas/'); ?>" method="post" enctype="multipart/form-data">
             <input type="hidden" name="nama_pengguna" value="<?php echo $this->session->userdata('nama_pengguna'); ?>">
             <label for="random-text" class="text-white">Persyaratan</label>
             <input type="text" id="random-text" name="persyaratan" readonly>
+            <input type="hidden" name="id_jadwal" value="<?= $id_jadwal; ?>">
             <label for="camera" class="text-white">Kamera</label>
             <input type="file" accept="image/*;capture=gallery" id="camera" name="camera">
             <?= $this->session->flashdata('message'); ?>

@@ -11,79 +11,72 @@
     <hr>
     <div class="cards-jadwal">
       <div class="card-jadwal">
-        <h3>SENIN</h3> <!-- Isi dengan database  -->
+        <h3>Monday</h3> 
         <hr>
         <ul>
-          <li>Alvin Austin</li> <!-- Isi dengan database  -->
-          <li>Raihan Ramadhan</li> <!-- Isi dengan database  -->
-          <li>Yusup Supriatna</li> <!-- Isi dengan database  -->
-          <li>Nabil Muthi</li> <!-- Isi dengan database  -->
-          <li>Fadly Faturrohman</li> <!-- Isi dengan database  -->
+          <li>Alvin Austin</li> 
+          <li>Raihan Ramadhan</li> 
+          <li>Yusup Supriatna</li> 
+          <li>Nabil Muthi Maulani</li> 
         </ul>
       </div>
       <div class="card-jadwal">
-        <h3>SELASA</h3>
+        <h3>Tuesday</h3>
         <hr>
         <ul>
-          <li>Anre Saputra</li>
-          <li>Rio Adrian</li>
-          <li>Geri Islami</li>
-          <li>Bayu Prasetya</li>
-          <li>Rafi Azmi</li>
-        </ul>
-      </div>
-      <div class="card-jadwal">
-        <h3>RABU</h3>
-        <hr>
-        <ul>
-          <li>Alvin Austin</li>
-          <li>Raihan Ramadhan</li>
-          <li>Yusup Supriatna</li>
-          <li>Nabil Muthi</li>
+          <li>Raihan Ramadhan</li> 
+          <li>Alvin Austin</li> 
+          <li>Yusup Supriatna</li> 
           <li>Fadly Faturrohman</li>
         </ul>
       </div>
       <div class="card-jadwal">
-        <h3>KAMIS</h3>
+        <h3>Wednesday</h3>
         <hr>
         <ul>
+          <li>Nabil Muthi Maulani</li>
           <li>Alvin Austin</li>
           <li>Raihan Ramadhan</li>
-          <li>Yusup Supriatna</li>
-          <li>Nabil Muthi</li>
           <li>Fadly Faturrohman</li>
         </ul>
       </div>
       <div class="card-jadwal">
-        <h3>JUMAT</h3>
+        <h3>Thursday</h3>
         <hr>
         <ul>
+          <li>Fadly Faturrohman</li>
           <li>Alvin Austin</li>
-          <li>Raihan Ramadhan</li>
           <li>Yusup Supriatna</li>
-          <li>Nabil Muthi</li>
+          <li>Nabil Muthi Maulani</li>
+        </ul>
+      </div>
+      <div class="card-jadwal">
+        <h3>Friday</h3>
+        <hr>
+        <ul>
+          <li>Yusup Supriatna</li>
+          <li>Raihan Ramadhan</li>
+          <li>Nabil Muthi Maulani</li>
           <li>Fadly Faturrohman</li>
         </ul>
       </div>
       <div class="card-jadwal">
-        <h3>SABTU</h3>
+        <h3>Saturday</h3>
         <hr>
         <ul>
           <li>Alvin Austin</li>
           <li>Raihan Ramadhan</li>
           <li>Yusup Supriatna</li>
-          <li>Nabil Muthi</li>
-          <li>Fadly Faturrohman</li>
+          <li>Nabil Muthi Maulani</li>
         </ul>
       </div>
       <div class="card-jadwal">
-        <h3>MINGGU</h3>
+        <h3>Sunday</h3>
         <hr>
         <ul>
+          <li>Yusup Supriatna</li>
           <li>Alvin Austin</li>
           <li>Raihan Ramadhan</li>
-          <li>Yusup Supriatna</li>
-          <li>Nabil Muthi</li>
           <li>Fadly Faturrohman</li>
         </ul>
       </div>

@@ -17,7 +17,7 @@
                 <label for="nama_pengguna">ID Petugas <span class="text-danger">*</span></label>
                 <select name="nama_pengguna" class="form-control form-control-user" required>
                   <?php foreach ($pengguna as $r) { ?>
-                  <option value="<?php echo $r['id_pengguna']; ?>"> <?php echo $r['nama_pengguna']; ?> </option>
+                  <option value="<?php echo $r['nama_pengguna']; ?>"> <?php echo $r['nama_pengguna']; ?> </option>
                   <?php } ?>
                 </select>
               </div>

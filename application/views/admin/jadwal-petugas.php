@@ -12,7 +12,7 @@
                 <thead>
                 <tr>
                   <th>No.</th>
-                  <th>ID Petugas</th>
+                  <th>Nama Petugas</th>
                   <th>Hari</th>
                   <th>Jam Masuk</th>
                   <th>Jam Keluar</th>
