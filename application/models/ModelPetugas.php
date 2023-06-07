@@ -51,7 +51,8 @@ class ModelPetugas extends CI_Model {
 			           <strong> ' . $x . ' </strong> 
                  </div>'
             );
-            redirect('petugas/AbsenMasuk');
+            $fix = $this->input->post('id_jadwal');
+            redirect('petugas/AbsenMasuk/index/' . $fix);
         }
 
         date_default_timezone_set("Asia/Jakarta");
@@ -94,7 +95,8 @@ class ModelPetugas extends CI_Model {
                <strong> ' . $x . ' </strong> 
                </div>'
           );
-          redirect('petugas/AbzenIzin');
+          $fix = $this->input->post('id_jadwal');
+          redirect('petugas/AbsenIzin/index/' . $fix);
       }
 
       date_default_timezone_set("Asia/Jakarta");

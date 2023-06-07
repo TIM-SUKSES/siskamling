@@ -34,6 +34,18 @@ class JadwalPetugas extends CI_Controller
         $this->load->view('admin/templates/admin-footer');
     }
 
+    public function resetJadwal()
+    {
+        $this->load->model('JadwalModel');
+        $this->JadwalModel->resetStatus();
+        $this->session->set_flashdata('message', '
+          <div class="alert alert-success alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <h4><i class="icon fa fa-check"></i> Status Telah Direset! </h4>
+          </div>');
+        redirect('admin/JadwalPetugas');
+    }
+
     public function editJadwal($id_jadwal)
     {
       $data['title'] = 'Edit Data Petugas';
@@ -56,8 +68,8 @@ class JadwalPetugas extends CI_Controller
               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
               <h4><i class="icon fa fa-warning"></i> Data Telah disimpan! </h4>
           </div>');
-          redirect('admin/JadwalPetugas');
-      } 
+        } 
+        redirect('admin/JadwalPetugas');
   }
 
   public function updateJadwal(){
@@ -68,8 +80,8 @@ class JadwalPetugas extends CI_Controller
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             <h4><i class="icon fa fa-warning"></i> Data Telah diupdate! </h4>
         </div>');
-        redirect('admin/JadwalPetugas/');
     }
+    redirect('admin/JadwalPetugas/');
   }
   
   public function hapus($id_jadwal)
