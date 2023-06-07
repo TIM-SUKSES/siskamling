@@ -64,9 +64,9 @@ class JadwalPetugas extends CI_Controller
       $this->JadwalModel->simpanJadwal();
       if ($this->db->affected_rows() > 0){
           $this->session->set_flashdata('message', '
-          <div class="alert alert-warning alert-dismissible">
+          <div class="alert alert-success alert-dismissible">
               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-              <h4><i class="icon fa fa-warning"></i> Data Telah disimpan! </h4>
+              <h4><i class="icon fa fa-check"></i> Data Telah disimpan! </h4>
           </div>');
         } 
         redirect('admin/JadwalPetugas');
