@@ -54,7 +54,7 @@ class ModelPetugas extends CI_Model {
             redirect('petugas/AbsenMasuk');
         }
 
-        date_default_timezone_set("Asia/Jakarta");
+        // date_default_timezone_set("Asia/Jakarta");
         $data = [
             'nama_pengguna' => htmlspecialchars($this->input->post('nama_pengguna', true)),
             'persyaratan' => htmlspecialchars($this->input->post('persyaratan', true)),
@@ -97,7 +97,7 @@ class ModelPetugas extends CI_Model {
           redirect('petugas/AbzenIzin');
       }
 
-      date_default_timezone_set("Asia/Jakarta");
+      // date_default_timezone_set("Asia/Jakarta");
       $data = [
           'nama_pengguna' => htmlspecialchars($this->input->post('nama_pengguna', true)),
           'alasan' => htmlspecialchars($this->input->post('alasan', true)),
