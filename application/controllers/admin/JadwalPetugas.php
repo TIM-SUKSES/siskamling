@@ -55,9 +55,9 @@ class JadwalPetugas extends CI_Controller
           <div class="alert alert-warning alert-dismissible">
               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
               <h4><i class="icon fa fa-warning"></i> Data Telah disimpan! </h4>
-          </div>');
-          redirect('admin/JadwalPetugas');
-      } 
+              </div>');
+            } 
+    redirect('admin/JadwalPetugas/index');
   }
 
   public function updateJadwal(){
@@ -68,8 +68,8 @@ class JadwalPetugas extends CI_Controller
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             <h4><i class="icon fa fa-warning"></i> Data Telah diupdate! </h4>
         </div>');
-        redirect('admin/JadwalPetugas/');
     }
+    redirect('admin/JadwalPetugas/index');
   }
   
   public function hapus($id_jadwal)
@@ -81,8 +81,8 @@ class JadwalPetugas extends CI_Controller
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             <h4><i class="icon fa fa-warning"></i> Data Telah Terhapus! </h4>
         </div>');
-        redirect('admin/JadwalPetugas/index');
     }
+    redirect('admin/JadwalPetugas/index');
   }
 }
 
