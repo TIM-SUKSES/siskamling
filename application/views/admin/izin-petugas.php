@@ -46,9 +46,9 @@
                               ?>
 
                               <a href="<?= base_url('admin/IzinPetugas/terima/') . $izin->id_izin; ?>"  
-                                class="btn btn-sm btn-info"><i class="fa fa-check"></i> Terima</a>
+                                class="btn btn-sm btn-info" onclick="return confirm('Apakah anda yakin izin diterima ?')"><i class="fa fa-check"></i> Terima</a>
                               <a href="<?= base_url('admin/IzinPetugas/tolak/') . $izin->id_izin; ?>" 
-                                class="btn btn-sm btn-danger"><i class="bi bi-x-lg"></i> Tolak</a>
+                                class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin izin ditolak ?')"><i class="bi bi-x-lg"></i> Tolak</a>
                               <?php
                             }
                             ?>

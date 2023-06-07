@@ -18,6 +18,7 @@
           <h2 class="text-white">Ruang Absen Petugas</h2>
           <form action="<?php echo site_url('petugas/AbsenMasuk/absenPetugas/'); ?>" method="post" enctype="multipart/form-data">
             <input type="hidden" name="nama_pengguna" value="<?php echo $this->session->userdata('nama_pengguna'); ?>">
+            <input type="hidden" value="<?= $id_jadwal; ?>" name="id_jadwal">
             <label for="random-text" class="text-white">Persyaratan</label>
             <input type="text" id="random-text" name="persyaratan" readonly>
             <input type="hidden" name="id_jadwal" value="<?= $id_jadwal; ?>">
