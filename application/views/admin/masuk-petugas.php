@@ -49,9 +49,9 @@
                               ?>
 
                               <a href="<?= base_url('admin/MasukPetugas/terima/') . $isi->id_absen; ?>"  
-                                class="btn btn-sm btn-info"><i class="fa fa-check"></i> Terima</a>
+                                class="btn btn-sm btn-info" onclick="return confirm('Apakah anda yakin absen diterima ?')"><i class="fa fa-check"></i> Terima</a>
                               <a href="<?= base_url('admin/MasukPetugas/tolak/') . $isi->id_absen; ?>" 
-                                class="btn btn-sm btn-danger"><i class="bi bi-x-lg"></i> Tolak</a>
+                                class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin absen ditolak ?')"><i class="bi bi-x-lg"></i> Tolak</a>
                               <?php
                             }
                             ?>
