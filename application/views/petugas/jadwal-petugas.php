@@ -9,24 +9,29 @@
   <div class="jadwal-container">
     <h1>JADWAL SISKAMLING</h1>
     <hr>
+    <?= $this->session->flashdata('message2'); ?>
+    <?= $this->session->flashdata('message3'); ?>
     <div class="cards-jadwal">
+      <?php foreach($petugas as $pt) : ?>
       <div class="card-jadwal">
-        <h3>SENIN</h3> <!-- Isi dengan database  -->
+        <h3><?php echo $pt->hari ?></h3> <!-- Isi dengan database  -->
         <hr>
-        <ul>
-          <li>Alvin Austin</li> <!-- Isi dengan database  -->
-          <li>Raihan Ramadhan</li> <!-- Isi dengan database  -->
-          <li>Yusup Supriatna</li> <!-- Isi dengan database  -->
-          <li>Nabil Muthi</li> <!-- Isi dengan database  -->
-          <li>Fadly Faturrohman</li> <!-- Isi dengan database  -->
-        </ul>
+        <p align="center"><?php echo $pt->jam_masuk ?> - <?php echo $pt->jam_keluar ?></p>
         <hr>
         <div class="btn-jadwal">
           <a href="<?php echo base_url('petugas/AbsenMasuk'); ?>">
-            <button class="bg-success">
+            <?php if($pt->status == 0) : ?>
+            <button class="bg-success" data-id_jadwal="<?php echo $this->session->userdata('id_pengguna'); ?>">
               Masuk
             </button>
           </a>
+          <?php else: ?>
+          <a href="<?php echo base_url('petugas/AbsenMasuk'); ?>">
+            <button class="bg-success" disabled>
+              Masuk
+            </button>
+          </a>
+          <?php endif; ?>
           <a href="<?php echo base_url('petugas/AbsenIzin'); ?>">
             <button class="bg-danger">
               Izin Tidak Hadir
@@ -34,150 +39,7 @@
           </a>
         </div>
       </div>
-      <div class="card-jadwal">
-        <h3>SELASA</h3>
-        <hr>
-        <ul>
-          <li>Anre Saputra</li>
-          <li>Rio Adrian</li>
-          <li>Geri Islami</li>
-          <li>Bayu Prasetya</li>
-          <li>Rafi Azmi</li>
-        </ul>
-        <hr>
-        <div class="btn-jadwal">
-          <a href="<?php echo base_url('petugas/AbsenMasuk'); ?>">
-            <button class="bg-success">
-              Masuk
-            </button>
-          </a>
-          <a href="<?php echo base_url('petugas/AbsenIzin'); ?>">
-            <button class="bg-danger">
-              Izin Tidak Hadir
-            </button>
-          </a>
-        </div>
-      </div>
-      <div class="card-jadwal">
-        <h3>RABU</h3>
-        <hr>
-        <ul>
-          <li>Alvin Austin</li>
-          <li>Raihan Ramadhan</li>
-          <li>Yusup Supriatna</li>
-          <li>Nabil Muthi</li>
-          <li>Fadly Faturrohman</li>
-        </ul>
-        <hr>
-        <div class="btn-jadwal">
-          <a href="<?php echo base_url('petugas/AbsenMasuk'); ?>">
-            <button class="bg-success">
-              Masuk
-            </button>
-          </a>
-          <a href="<?php echo base_url('petugas/AbsenIzin'); ?>">
-            <button class="bg-danger">
-              Izin Tidak Hadir
-            </button>
-          </a>
-        </div>
-      </div>
-      <div class="card-jadwal">
-        <h3>KAMIS</h3>
-        <hr>
-        <ul>
-          <li>Alvin Austin</li>
-          <li>Raihan Ramadhan</li>
-          <li>Yusup Supriatna</li>
-          <li>Nabil Muthi</li>
-          <li>Fadly Faturrohman</li>
-        </ul>
-        <hr>
-        <div class="btn-jadwal">
-          <a href="<?php echo base_url('petugas/AbsenMasuk'); ?>">
-            <button class="bg-success">
-              Masuk
-            </button>
-          </a>
-          <a href="<?php echo base_url('petugas/AbsenIzin'); ?>">
-            <button class="bg-danger">
-              Izin Tidak Hadir
-            </button>
-          </a>
-        </div>
-      </div>
-      <div class="card-jadwal">
-        <h3>JUMAT</h3>
-        <hr>
-        <ul>
-          <li>Alvin Austin</li>
-          <li>Raihan Ramadhan</li>
-          <li>Yusup Supriatna</li>
-          <li>Nabil Muthi</li>
-          <li>Fadly Faturrohman</li>
-        </ul>
-        <hr>
-        <div class="btn-jadwal">
-          <a href="<?php echo base_url('petugas/AbsenMasuk'); ?>">
-            <button class="bg-success">
-              Masuk
-            </button>
-          </a>
-          <a href="<?php echo base_url('petugas/AbsenIzin'); ?>">
-            <button class="bg-danger">
-              Izin Tidak Hadir
-            </button>
-          </a>
-        </div>
-      </div>
-      <div class="card-jadwal">
-        <h3>SABTU</h3>
-        <hr>
-        <ul>
-          <li>Alvin Austin</li>
-          <li>Raihan Ramadhan</li>
-          <li>Yusup Supriatna</li>
-          <li>Nabil Muthi</li>
-          <li>Fadly Faturrohman</li>
-        </ul>
-        <hr>
-        <div class="btn-jadwal">
-          <a href="<?php echo base_url('petugas/AbsenMasuk'); ?>">
-            <button class="bg-success">
-              Masuk
-            </button>
-          </a>
-          <a href="<?php echo base_url('petugas/AbsenIzin'); ?>">
-            <button class="bg-danger">
-              Izin Tidak Hadir
-            </button>
-          </a>
-        </div>
-      </div>
-      <div class="card-jadwal">
-        <h3>MINGGU</h3>
-        <hr>
-        <ul>
-          <li>Alvin Austin</li>
-          <li>Raihan Ramadhan</li>
-          <li>Yusup Supriatna</li>
-          <li>Nabil Muthi</li>
-          <li>Fadly Faturrohman</li>
-        </ul>
-        <hr>
-        <div class="btn-jadwal">
-          <a href="<?php echo base_url('petugas/AbsenMasuk'); ?>">
-            <button class="bg-success">
-              Masuk
-            </button>
-          </a>
-          <a href="<?php echo base_url('petugas/AbsenIzin'); ?>">
-            <button class="bg-danger">
-              Izin Tidak Hadir
-            </button>
-          </a>
-        </div>
-      </div>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>

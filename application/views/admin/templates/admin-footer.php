@@ -1,6 +1,6 @@
 </div>
 <footer class="main-footer text-center">
-    <strong>Copyright &copy; 2022 <a href="https://github.com/TIM-SUKSES" target="_blank" class="text-info">SISKAMLING</a>.</strong> All rights
+    <strong>Copyright &copy; 2023 <a href="https://github.com/TIM-SUKSES" target="_blank" class="text-info">SISKAMLING</a>.</strong> All rights
     reserved.
   </footer>
 

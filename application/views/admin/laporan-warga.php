@@ -14,26 +14,24 @@
                   <th>No.</th>
                   <th>Nama</th>
                   <th>Alamat</th>
-                  <td>Pesan</td>
+                  <th>Pesan</th>
                   <th>Foto Lampiran</th>
                   <th>Tanggal Input</th>
-                  <th>Pukul</th>
                 </tr>
                 </thead>
                 <tbody>
-                    <!-- <php $id_petugas = 1; foreach($tabel as $table) : ?> -->
+                    <?php $id_laporan = 1; foreach($laporan_warga as $laporan) : ?>
                         <tr>
-                            <td>1<!-- <php echo $id_petugas++ ?> --></td>
-                            <td>Alvin Austin<!-- <php echo $table->nama_petugas ?> --></td>
-                            <td>Perum Pondok Melati, Blok F2/16 Dawuan Timur, Kec. Cikampek, Kab. Karawang<!-- <php echo $table->alamat ?> --></td>
-                            <td>Tolong Rumah Saya dimaling<!-- <php echo $table->pesan ?> --></td>
+                            <td><?php echo $id_laporan++ ?></td>
+                            <td><?php echo $laporan->nama_warga ?></td>
+                            <td><?php echo $laporan->alamat ?></td>
+                            <td><?php echo $laporan->pesan ?></td>
                             <td>
-                              <img src="<?php echo base_url('assets/img/maling.jpg'); ?>" width="100"><!-- <img src="<php echo base_url('assets/img/'.$table->foto_petugas); ?>" width="100"> -->
+                          <img src="<?php echo base_url('assets/img/'.$laporan->file); ?>" width="100">
                             </td>
-                            <td>2023-05-03<!-- <php echo $table->tanggal_input ?> --></td>
-                            <td>04:30:55<!-- <php echo $table->waktu_input ?> --></td>
+                            <td><?php echo $laporan->tanggal_input ?></td>
                         </tr>
-                    <!-- <php endforeach; ?> -->
+                    <?php endforeach; ?>
                 </tbody>
                 </table>
             </div>

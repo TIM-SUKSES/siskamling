@@ -100,7 +100,7 @@
     <!-- Navbar -->
     <nav class="nav-container">
       <button class="nav-button"></button>
-      <h1 class="nav-logo">SISKAMLING</h1>
+      <a href="<?php echo base_url('auth') ?>" style="text-decoration: none;"><h1 class="nav-logo">SISKAMLING</h1></a>
       <ul class="menu-container">
         <li class="menu-item">
           <a class="menu-link" href="<?php echo base_url('warga/HomeWarga'); ?>">Home</a>

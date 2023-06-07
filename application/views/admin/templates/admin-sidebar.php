@@ -5,7 +5,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?php echo base_url('assets/img/out..png'); ?>" class="img-circle" alt="User Image">
+          <img src="<?php echo base_url('assets/img/tux.png'); ?>" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p><?php echo $this->session->userdata('nama_pengguna'); ?></p> <!-- Nama diambil dari database -->
@@ -30,13 +30,18 @@
             <i class="fa fa-credit-card"></i> <span>Absen Izin Petugas</span>
           </a>
         </li>
+        <li class="<?php echo $this->uri->segment(2) == 'JadwalPetugas' ? 'active' : '' ?> ">
+          <a href="<?php echo site_url('admin/JadwalPetugas'); ?>">
+          <i class="fa fa-calendar"></i> <span>Jadwal Petugas</span>
+          </a>
+        </li>
         <li class="<?php echo $this->uri->segment(2) == 'LaporanWarga' ? 'active' : '' ?> ">
           <a href="<?php echo site_url('admin/LaporanWarga'); ?>">
             <i class="fa fa-envelope-open"></i> <span>Laporan Warga</span>
           </a>
         </li>
         <li class="<?php echo $this->uri->segment(2) == 'logout' ? 'active' : '' ?> ">
-          <a href="">
+          <a href="<?php echo base_url('auth/logout'); ?>">
             <i class="fa fa-sign-out"></i> <span>Logout</span>
           </a>
         </li>

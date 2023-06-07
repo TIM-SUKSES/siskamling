@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2023 at 04:50 AM
+-- Generation Time: Jun 05, 2023 at 02:24 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -41,8 +41,52 @@ CREATE TABLE `absen` (
 --
 
 INSERT INTO `absen` (`id_absen`, `nama_pengguna`, `persyaratan`, `foto`, `waktu_absen`, `status`) VALUES
-(1, 'Nabil Muthi Maulani', 'Foto Bebas', 'foto-selfie.png', '2023-05-25 09:28:24', 'Menunggu Verifikasi'),
-(2, 'Raihan Ramadhan', 'Foto depan gapura', 'foto-selfie.png', '2023-05-25 09:35:18', 'Menunggu Verifikasi');
+(1, 'Nabil Muthi Maulani', 'Foto Bebas', 'foto-selfie.png', '2023-05-25 09:28:24', 'Hadir'),
+(2, 'Raihan Ramadhan', 'Foto depan gapura', 'foto-selfie.png', '2023-05-25 09:35:18', 'Tidak Hadir'),
+(3, 'nabil muthi', 'Foto dengan dua jari', '5063480.jpg', '2023-05-26 09:11:20', 'Tidak Hadir'),
+(5, 'Alvin Austin', 'Foto depan Pos Ronda', '86266071_693186561419887_4854250159099346944_n.jpg', '2023-05-28 21:03:39', 'Hadir'),
+(6, 'Nabil Muthi Maulani', 'Foto depan Pos Ronda', 'a73.jpg', '2023-05-29 08:29:35', 'Tidak Hadir');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `izin`
+--
+
+CREATE TABLE `izin` (
+  `id_izin` int(11) NOT NULL,
+  `nama_pengguna` varchar(50) NOT NULL,
+  `alasan` text NOT NULL,
+  `foto` text NOT NULL,
+  `tanggal_input` datetime NOT NULL DEFAULT current_timestamp(),
+  `status` enum('Menunggu Verifikasi','Diterima','Ditolak') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jadwal`
+--
+
+CREATE TABLE `jadwal` (
+  `id_jadwal` int(11) NOT NULL,
+  `nama_pengguna` varchar(30) NOT NULL,
+  `hari` varchar(12) NOT NULL,
+  `jam_masuk` time NOT NULL,
+  `jam_keluar` time NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `jadwal`
+--
+
+INSERT INTO `jadwal` (`id_jadwal`, `nama_pengguna`, `hari`, `jam_masuk`, `jam_keluar`, `status`) VALUES
+(24, '9', 'Kamis', '06:00:00', '17:00:00', 0),
+(26, '9', 'Senin', '06:00:00', '18:00:00', 0),
+(27, '4', 'Kamis', '06:00:00', '17:00:00', 0),
+(28, '4', 'Minggu', '06:00:00', '18:00:00', 0),
+(29, '9', 'Jumat', '06:00:00', '15:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -51,11 +95,22 @@ INSERT INTO `absen` (`id_absen`, `nama_pengguna`, `persyaratan`, `foto`, `waktu_
 --
 
 CREATE TABLE `laporan` (
-  `id_laporan` char(10) NOT NULL,
-  `tanggal_laporan` date NOT NULL,
-  `pesan` varchar(128) NOT NULL,
-  `id_warga` char(6) NOT NULL
+  `id_laporan` int(11) NOT NULL,
+  `nama_warga` varchar(50) NOT NULL,
+  `alamat` text NOT NULL,
+  `pesan` text NOT NULL,
+  `file` text NOT NULL,
+  `tanggal_input` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `laporan`
+--
+
+INSERT INTO `laporan` (`id_laporan`, `nama_warga`, `alamat`, `pesan`, `file`, `tanggal_input`) VALUES
+(1, 'Adi Suwarna', 'PERUM PONDOK MELATI BLOK L12/10', 'Aya ular asup ka imah ', 'ular1.jpg', '2023-05-30 03:16:19'),
+(2, 'Ujang Kusnandar', 'Pondok Melati F4/10', 'Baju di jemuran hilang', 'jemuran1.jpg', '2023-05-30 03:18:09'),
+(3, 'Ahmad Subarjo', 'PERUM PONDOK MELATI BLOK K9/25', 'Anak saya belum pulang dari tanggal 10 mei, dengan ciri ciri seperti berikut:\r\n\r\nkulit sawo matang\r\ntinggi badan 155cm\r\njenis kelamin laki-laki\r\npakaian menggunakan seragam sekolah smp\r\n\r\napabila ada yang menemukan hub 0895xxxxxxx', 'anak-hilang.jpg', '2023-05-30 03:22:50');
 
 -- --------------------------------------------------------
 
@@ -77,9 +132,11 @@ CREATE TABLE `pengguna` (
 
 INSERT INTO `pengguna` (`id_pengguna`, `email`, `password`, `nama_pengguna`, `role`) VALUES
 (3, 'alvin.austin4@gmail.com', '$2y$10$srPyaIqBlGYz09lGJ8HGqe/xpJXiwCOrZ1HEJaswu1iRG9HywsGqm', 'alvin', 'admin'),
-(4, 'raihanramadhan09@gmail.com', '$2y$10$dUtvoyNJygo2CXCSGfYc2.36PmkLIgB8Xlu9dqrL1dJR0XtWhi3xu', 'Rehan Wangsaf', 'petugas'),
-(5, 'yusup@gmail.com', '$2y$10$JJb0fiQMxeYg3v/VgkkFYeJNRNPLkZWSr1ZiFbCmTcT.ttAFa4Xve', 'Yusup Supriatna', 'petugas'),
-(8, 'nabilmuthi77@gmail.com', '$2y$10$hvc3hoWJs3g3qkm1UwXVpO6QRkt1tvzlox2bMMz5RCwlKOIUyuI7K', 'nabil muthi', 'petugas');
+(4, 'raihanramadhan09@gmail.com', '$2y$10$tlmzyt0I6OB.ui0x5sJIfOuyWuRG48WVAZqox7i76aXN/OtcxXba6', 'Raihan Ramadhan', 'petugas'),
+(5, 'yusup@gmail.com', '$2y$10$iUy/PBLQ/DmCc8K5SWczpusrsnWb0SKeeDdAgPju3qq8bJu8VaL3W', 'Yusup Supriatna', 'petugas'),
+(8, 'nabilmuthi77@gmail.com', '$2y$10$iklBKu8CAss5S152ue2fgOwB/Yp2w1k65B0Tu941BO/TinRyTBaMu', 'Nabil Muthi Maulani', 'petugas'),
+(9, 'wandesay85@gmail.com', '$2y$10$fr1Y9JGvdGfaFnHfW21XjONlQGQT8tqX67GKWeR319xOCSR25dYrG', 'Alvin Austin', 'petugas'),
+(10, 'fadly@gmail.com', '$2y$10$gFIdgXa6Wx0XTXo.DIZlyeBo.ThbWXYRzCe.wauYNI9d5cnlZzmyi', 'Fadly Faturrohman', 'petugas');
 
 -- --------------------------------------------------------
 
@@ -100,6 +157,25 @@ INSERT INTO `roles` (`id_roles`, `nama_roles`) VALUES
 (1, 'petugas'),
 (2, 'admin');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `shift`
+--
+
+CREATE TABLE `shift` (
+  `id_shift` int(11) NOT NULL,
+  `nama_shift` varchar(12) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `shift`
+--
+
+INSERT INTO `shift` (`id_shift`, `nama_shift`) VALUES
+(1, 'pagi'),
+(2, 'malam');
+
 --
 -- Indexes for dumped tables
 --
@@ -111,11 +187,22 @@ ALTER TABLE `absen`
   ADD PRIMARY KEY (`id_absen`);
 
 --
+-- Indexes for table `izin`
+--
+ALTER TABLE `izin`
+  ADD PRIMARY KEY (`id_izin`);
+
+--
+-- Indexes for table `jadwal`
+--
+ALTER TABLE `jadwal`
+  ADD PRIMARY KEY (`id_jadwal`);
+
+--
 -- Indexes for table `laporan`
 --
 ALTER TABLE `laporan`
-  ADD PRIMARY KEY (`id_laporan`),
-  ADD UNIQUE KEY `id_warga` (`id_warga`);
+  ADD PRIMARY KEY (`id_laporan`);
 
 --
 -- Indexes for table `pengguna`
@@ -130,6 +217,12 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`id_roles`);
 
 --
+-- Indexes for table `shift`
+--
+ALTER TABLE `shift`
+  ADD PRIMARY KEY (`id_shift`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -137,19 +230,43 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `absen`
 --
 ALTER TABLE `absen`
-  MODIFY `id_absen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_absen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `izin`
+--
+ALTER TABLE `izin`
+  MODIFY `id_izin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `jadwal`
+--
+ALTER TABLE `jadwal`
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
+-- AUTO_INCREMENT for table `laporan`
+--
+ALTER TABLE `laporan`
+  MODIFY `id_laporan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id_roles` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `shift`
+--
+ALTER TABLE `shift`
+  MODIFY `id_shift` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

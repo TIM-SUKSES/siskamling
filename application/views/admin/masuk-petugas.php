@@ -23,7 +23,7 @@
                 <tbody>
                 <?php
             $no = 1;
-            foreach ($absen_cihuy as $isi) { ?>
+            foreach ($absen_petugas as $isi) { ?>
 
                         <tr>
                             <td><?= $no++ ?></td>
@@ -44,7 +44,7 @@
 
                             <td align="center">
                             <?php if ($isi->status == "Hadir" or $isi->status == "Tidak Hadir") {
-                              echo "<button class='btn btn-sm btn-success'><i class='fa fa-check'></i> Confirmed</button>";
+                              echo "<button class='btn btn-sm btn-success'><i class='fa fa-check'></i> Selesai</button>";
                             } else {
                               ?>
 

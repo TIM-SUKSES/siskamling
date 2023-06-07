@@ -19,10 +19,14 @@
       var teks =
         [
           "Foto depan Pos Ronda",
-          "Foto depan rumah RT",
-          "Foto depan gapura desa",
+          "Foto sedang berjaga",
+          "Foto depan pintu gerbang",
           "Foto sambil senyum",
-          "Foto dengan dua jari"
+          "Foto pose dua jari",
+          "Foto pose 1 jari",
+          "Foto pose 3 jari",
+          "Foto pose 4 jari",
+          "Foto pose 5 jari"
         ];
 
       // Menghasilkan indeks acak dari array teks
