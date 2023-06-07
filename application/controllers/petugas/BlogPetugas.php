@@ -11,7 +11,7 @@ class BlogPetugas extends CI_Controller{
 }
 
   public function index()
-  {
+  { 
     $data['title'] = 'Blog';
     $this->load->view('petugas/templates/petugas-header', $data);
     $this->load->view('petugas/blog-petugas', $data);
@@ -19,5 +19,3 @@ class BlogPetugas extends CI_Controller{
   }
 
 }
-
-?>

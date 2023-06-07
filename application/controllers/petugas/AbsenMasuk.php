@@ -9,8 +9,9 @@ class AbsenMasuk extends CI_Controller{
         redirect('auth');
     }
 }
-  public function index()
+  public function index($id_jadwal)
   {
+    $data['id_jadwal'] = $id_jadwal;
     $data['title'] = 'Absen Masuk';
     $this->load->view('petugas/templates/petugas-header', $data);
     $this->load->view('petugas/absen-masuk', $data);
@@ -32,5 +33,3 @@ class AbsenMasuk extends CI_Controller{
   }
 
 }
-
-?>

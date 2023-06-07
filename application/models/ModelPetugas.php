@@ -51,7 +51,8 @@ class ModelPetugas extends CI_Model {
 			           <strong> ' . $x . ' </strong> 
                  </div>'
             );
-            redirect('petugas/AbsenMasuk');
+            $fix = $this->input->post('id_jadwal');
+            redirect('petugas/AbsenMasuk/index/' . $fix);
         }
 
         date_default_timezone_set("Asia/Jakarta");
@@ -64,6 +65,14 @@ class ModelPetugas extends CI_Model {
         ];
 
         $this->db->insert('absen', $data);
+
+        //update status jadwal
+        $update = [
+          'status' => 1
+        ];
+
+        $this->db->where('id_jadwal', $this->input->post('id_jadwal'));
+        return $this->db->update('jadwal', $update);
     }
 
     public function simpanIzin()
@@ -86,19 +95,29 @@ class ModelPetugas extends CI_Model {
                <strong> ' . $x . ' </strong> 
                </div>'
           );
-          redirect('petugas/AbzenIzin');
+          $fix = $this->input->post('id_jadwal');
+          redirect('petugas/AbsenIzin/index/' . $fix);
       }
 
       date_default_timezone_set("Asia/Jakarta");
       $data = [
           'nama_pengguna' => htmlspecialchars($this->input->post('nama_pengguna', true)),
           'alasan' => htmlspecialchars($this->input->post('alasan', true)),
-          'foto' => $fileName,
-          'tanggal_input' => date('Y-m-d H:i:s'),
-          'status' => htmlspecialchars($this->input->post('status', true))
+          'waktu_izin' => date('Y-m-d H:i:s'),
+          'status' => htmlspecialchars($this->input->post('status', true)),
+          'foto' => $fileName
       ];
 
       $this->db->insert('izin', $data);
+
+      //update status jadwal
+      $update = [
+        'status' => 1
+      ];
+
+      $this->db->where('id_jadwal', $this->input->post('id_jadwal'));
+      return $this->db->update('jadwal', $update);
     }
+
 
   }

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 05, 2023 at 02:24 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Host: localhost
+-- Generation Time: Jun 06, 2023 at 08:44 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -36,17 +36,6 @@ CREATE TABLE `absen` (
   `status` enum('Menunggu Verifikasi','Hadir','Tidak Hadir') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `absen`
---
-
-INSERT INTO `absen` (`id_absen`, `nama_pengguna`, `persyaratan`, `foto`, `waktu_absen`, `status`) VALUES
-(1, 'Nabil Muthi Maulani', 'Foto Bebas', 'foto-selfie.png', '2023-05-25 09:28:24', 'Hadir'),
-(2, 'Raihan Ramadhan', 'Foto depan gapura', 'foto-selfie.png', '2023-05-25 09:35:18', 'Tidak Hadir'),
-(3, 'nabil muthi', 'Foto dengan dua jari', '5063480.jpg', '2023-05-26 09:11:20', 'Tidak Hadir'),
-(5, 'Alvin Austin', 'Foto depan Pos Ronda', '86266071_693186561419887_4854250159099346944_n.jpg', '2023-05-28 21:03:39', 'Hadir'),
-(6, 'Nabil Muthi Maulani', 'Foto depan Pos Ronda', 'a73.jpg', '2023-05-29 08:29:35', 'Tidak Hadir');
-
 -- --------------------------------------------------------
 
 --
@@ -58,7 +47,7 @@ CREATE TABLE `izin` (
   `nama_pengguna` varchar(50) NOT NULL,
   `alasan` text NOT NULL,
   `foto` text NOT NULL,
-  `tanggal_input` datetime NOT NULL DEFAULT current_timestamp(),
+  `waktu_izin` datetime NOT NULL DEFAULT current_timestamp(),
   `status` enum('Menunggu Verifikasi','Diterima','Ditolak') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -82,11 +71,34 @@ CREATE TABLE `jadwal` (
 --
 
 INSERT INTO `jadwal` (`id_jadwal`, `nama_pengguna`, `hari`, `jam_masuk`, `jam_keluar`, `status`) VALUES
-(24, '9', 'Kamis', '06:00:00', '17:00:00', 0),
-(26, '9', 'Senin', '06:00:00', '18:00:00', 0),
-(27, '4', 'Kamis', '06:00:00', '17:00:00', 0),
-(28, '4', 'Minggu', '06:00:00', '18:00:00', 0),
-(29, '9', 'Jumat', '06:00:00', '15:00:00', 0);
+(24, 'Alvin Austin', 'Monday', '06:00:00', '17:00:00', 0),
+(26, 'Raihan Ramadhan', 'Monday', '06:00:00', '18:00:00', 0),
+(27, 'Yusup Supriatna', 'Monday', '06:00:00', '17:00:00', 0),
+(28, 'Nabil Muthi Maulani', 'Monday', '06:00:00', '18:00:00', 0),
+(29, 'Alvin Austin', 'Tuesday', '06:00:00', '17:00:00', 0),
+(30, 'Raihan Ramadhan', 'Tuesday', '06:00:00', '18:00:00', 1),
+(31, 'Yusup Supriatna', 'Tuesday', '06:00:00', '17:00:00', 0),
+(32, 'Fadly Faturrohman', 'Tuesday', '06:00:00', '18:00:00', 0),
+(33, 'Alvin Austin', 'Wednesday', '06:00:00', '17:00:00', 0),
+(34, 'Raihan Ramadhan', 'Wednesday', '06:00:00', '18:00:00', 0),
+(35, 'Nabil Muthi Maulani', 'Wednesday', '06:00:00', '17:00:00', 0),
+(36, 'Fadly Faturrohman', 'Wednesday', '06:00:00', '18:00:00', 0),
+(37, 'Alvin Austin', 'Thursday', '06:00:00', '17:00:00', 0),
+(38, 'Yusup Supriatna', 'Thursday', '06:00:00', '18:00:00', 0),
+(39, 'Nabil Muthi Maulani', 'Thursday', '06:00:00', '17:00:00', 0),
+(40, 'Fadly Faturrohman', 'Thursday', '06:00:00', '18:00:00', 0),
+(41, 'Raihan Ramadhan', 'Friday', '06:00:00', '15:00:00', 0),
+(42, 'Yusup Supriatna', 'Friday', '06:00:00', '15:00:00', 0),
+(43, 'Nabil Muthi Maulani', 'Friday', '06:00:00', '15:00:00', 0),
+(44, 'Fadly Faturrohman', 'Friday', '06:00:00', '15:00:00', 0),
+(45, 'Alvin Austin', 'Saturday', '06:00:00', '17:00:00', 0),
+(46, 'Raihan Ramadhan', 'Saturday', '06:00:00', '18:00:00', 0),
+(47, 'Yusup Supriatna', 'Saturday', '06:00:00', '17:00:00', 0),
+(48, 'Nabil Muthi Maulani', 'Saturday', '06:00:00', '18:00:00', 0),
+(49, 'Alvin Austin', 'Sunday', '06:00:00', '17:00:00', 0),
+(50, 'Raihan Ramadhan', 'Sunday', '06:00:00', '18:00:00', 0),
+(51, 'Yusup Supriatna', 'Sunday', '06:00:00', '17:00:00', 0),
+(54, 'Fadly Faturrohman', 'Sunday', '06:00:00', '18:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -131,12 +143,12 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`id_pengguna`, `email`, `password`, `nama_pengguna`, `role`) VALUES
-(3, 'alvin.austin4@gmail.com', '$2y$10$srPyaIqBlGYz09lGJ8HGqe/xpJXiwCOrZ1HEJaswu1iRG9HywsGqm', 'alvin', 'admin'),
-(4, 'raihanramadhan09@gmail.com', '$2y$10$tlmzyt0I6OB.ui0x5sJIfOuyWuRG48WVAZqox7i76aXN/OtcxXba6', 'Raihan Ramadhan', 'petugas'),
-(5, 'yusup@gmail.com', '$2y$10$iUy/PBLQ/DmCc8K5SWczpusrsnWb0SKeeDdAgPju3qq8bJu8VaL3W', 'Yusup Supriatna', 'petugas'),
-(8, 'nabilmuthi77@gmail.com', '$2y$10$iklBKu8CAss5S152ue2fgOwB/Yp2w1k65B0Tu941BO/TinRyTBaMu', 'Nabil Muthi Maulani', 'petugas'),
-(9, 'wandesay85@gmail.com', '$2y$10$fr1Y9JGvdGfaFnHfW21XjONlQGQT8tqX67GKWeR319xOCSR25dYrG', 'Alvin Austin', 'petugas'),
-(10, 'fadly@gmail.com', '$2y$10$gFIdgXa6Wx0XTXo.DIZlyeBo.ThbWXYRzCe.wauYNI9d5cnlZzmyi', 'Fadly Faturrohman', 'petugas');
+(3, 'alvin.austin4@gmail.com', '$2y$10$LwH1QM4TbM3oGLe7lXBQFuebzNgyBpwQPUpFG6LtI7P9rorH6xYWm', 'King Cobra v2', 'admin'),
+(4, 'raihanramadhan09@gmail.com', '$2y$10$/l2IMutIQLMHdWHljnVy0.Vqr0Ha3qh22/h260UszBk48OoeNVrsm', 'Raihan Ramadhan', 'petugas'),
+(5, 'yusup@gmail.com', '$2y$10$O898lUVwOSZtih7Az2.HCu7LH2x8QefaLiqKasP2aKLHtzFzTKkiW', 'Yusup Supriatna', 'petugas'),
+(8, 'nabilmuthi77@gmail.com', '$2y$10$uzT4jtXzowkA2iJ6r0OYsu87qjCNIsM4bz809baKTWk6ogFXlckGm', 'Nabil Muthi Maulani', 'petugas'),
+(9, 'wandesay85@gmail.com', '$2y$10$BmNrbvt8svytedcKzyf4ueCkBQyuGEk2j4WPDaA8fVXKgKMtSNxXG', 'Alvin Austin', 'petugas'),
+(10, 'fadly@gmail.com', '$2y$10$AlkI61ViJzDckAiOteQG9.HySA3X09DTIoQztAyU4e2lLYnc9xnQ2', 'Fadly Faturrohman', 'petugas');
 
 -- --------------------------------------------------------
 
@@ -230,19 +242,19 @@ ALTER TABLE `shift`
 -- AUTO_INCREMENT for table `absen`
 --
 ALTER TABLE `absen`
-  MODIFY `id_absen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_absen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `izin`
 --
 ALTER TABLE `izin`
-  MODIFY `id_izin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_izin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `laporan`
@@ -254,7 +266,7 @@ ALTER TABLE `laporan`
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `roles`

@@ -126,7 +126,7 @@
           <a class="menu-link" href="<?php echo base_url('petugas/JadwalPetugas'); ?>">Jadwal</a>
         </li>
         <li class="menu-item">
-          <a class="menu-link" href="<?php echo base_url('petugas/Blogpetugas'); ?>">Blog</a>
+          <a class="menu-link" href="<?php echo base_url('petugas/BlogPetugas'); ?>">Blog</a>
         </li>
         <li class="menu-item dropdown-menu-item" style="position: relative;">
           <a class="menu-link" href="#"><?php echo $this->session->userdata('nama_pengguna'); ?> <i class="fa-solid fa-caret-down"></i></i><!-- Nama Dipanggil dari database -->

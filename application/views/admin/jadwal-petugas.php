@@ -3,16 +3,18 @@
 <?php echo $title; ?>
 
 <div class="box">
-            <div class="box-header">
+            <div class="box-header" style="position: relative;">
                 <a href="<?php echo site_url('admin/JadwalPetugas/tambahJadwal'); ?>" class="btn bg-red"><i class="fa fa-plus-circle"> Tambah Jadwal Petugas </i></a>
+                <a href="<?php echo site_url('admin/JadwalPetugas/resetJadwal'); ?>" class="btn btn-warning" style="position:absolute; right: 10px ;" onclick="return confirm('Apakah Anda Yakin Ingin Mereset Status ?')">Reset Status</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
+            <?= $this->session->flashdata('message'); ?>
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>No.</th>
-                  <th>ID Petugas</th>
+                  <th>Nama Petugas</th>
                   <th>Hari</th>
                   <th>Jam Masuk</th>
                   <th>Jam Keluar</th>

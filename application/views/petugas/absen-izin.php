@@ -17,10 +17,12 @@
         </div>
         <div class="form-container">
           <h2 class="text-white">Ruang Izin Absen Petugas</h2>
-          <form action="<?php echo site_url('petugas/AbsenIzin/IzinPetugas') ?>" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="nama_pengguna" value="<?php echo $this->session->userdata('nama_pengguna'); ?>">  
+          <form action="<?php echo site_url('petugas/AbsenIzin/izinPetugas/') ?>" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="nama_pengguna" value="<?php echo $this->session->userdata('nama_pengguna'); ?>"> 
+            <input type="hidden" value="<?= $id_jadwal; ?>" name="id_jadwal"> 
             <label for="alasan" class="text-white">Alasan Izin</label>
             <input type="text" id="alasan" name="alasan">
+            <input type="hidden" name="id_jadwal" value="<?= $id_jadwal; ?>">
             <label for="camera" class="text-white">Bukti Lampiran</label>
             <input type="file" accept="image/*;capture=gallery" id="foto" name="foto">
             <?= $this->session->flashdata('message'); ?>

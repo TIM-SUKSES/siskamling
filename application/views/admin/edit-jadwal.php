@@ -17,9 +17,12 @@
             <div class="form-group">
                 <label for="nama_pengguna">Nama Petugas <span class="text-danger">*</span></label>
                 <select name="nama_pengguna" class="form-control form-control-user" required>
-                  <?php foreach ($pengguna as $r) { ?>
-                  <option value="<?php echo $r['id_pengguna']; ?>"> <?php echo $r['nama_pengguna']; ?></option>
-                  <?php } ?>
+                  <?php foreach ($pengguna as $p) { 
+                                    if ($baris->nama_pengguna == $p['nama_pengguna']) { ?>
+                                        <option value="<?= $baris->nama_pengguna; ?>" selected><?= $baris->nama_pengguna; ?></option>
+                                <?php } else { ?>
+                                        <option value="<?= $p['nama_pengguna']; ?>"><?= $p['nama_pengguna']; ?></option>
+                                <?php }} ?>
                 </select>
               </div>
             </td>

@@ -14,7 +14,7 @@ class JadwalPetugas extends CI_Controller{
   public function index()
   {
     $data['title'] = 'Jadwal';
-    $data['petugas'] = $this->db->get_where('jadwal',['nama_pengguna' => $this->session->userdata('id_pengguna')])->result();
+    $data['jadwal'] = $this->db->get_where('jadwal',['nama_pengguna' => $this->session->userdata('nama_pengguna')])->result();
     $this->load->view('petugas/templates/petugas-header', $data);
     $this->load->view('petugas/jadwal-petugas', $data);
     $this->load->view('petugas/templates/petugas-footer', $data);

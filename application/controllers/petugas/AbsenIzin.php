@@ -9,15 +9,16 @@ class AbsenIzin extends CI_Controller{
     }
 }
 
-  public function index()
+  public function index($id_jadwal)
   {
+    $data['id_jadwal'] = $id_jadwal;
     $data['title'] = 'Absen Izin';
     $this->load->view('petugas/templates/petugas-header', $data);
     $this->load->view('petugas/absen-izin', $data);
     $this->load->view('petugas/templates/petugas-footer', $data);
   }
 
-  public function IzinPetugas()
+  public function izinPetugas()
   {
     $this->load->model('ModelPetugas');
     $this->ModelPetugas->simpanIzin();
@@ -32,5 +33,3 @@ class AbsenIzin extends CI_Controller{
   }
 
 }
-
-?>
