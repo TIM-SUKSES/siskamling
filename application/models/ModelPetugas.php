@@ -34,8 +34,8 @@ class ModelPetugas extends CI_Model {
   public function simpanAbsen()
   {
         $config['upload_path']          = 'assets/img';
-        $config['allowed_types']        = 'gif|jpg|png|jpeg';
-        $config['max_size']             = '2048';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg|heic|heif';
+        $config['max_size']             = '6144';
 
         $this->load->library('upload', $config); 
 
@@ -78,8 +78,8 @@ class ModelPetugas extends CI_Model {
     public function simpanIzin()
     {
       $config['upload_path']          = 'assets/img';
-      $config['allowed_types']        = 'gif|jpg|png|jpeg';
-      $config['max_size']             = '2048';
+      $config['allowed_types']        = 'gif|jpg|png|jpeg|heic|heif';
+      $config['max_size']             = '6144';
 
       $this->load->library('upload', $config); 
 

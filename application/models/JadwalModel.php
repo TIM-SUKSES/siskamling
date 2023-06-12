@@ -9,12 +9,12 @@ class JadwalModel extends CI_Model
         return $this->db->get('pengguna');
     }
     
-    public function getJadwalByPetugas() {
-        $this->db->select('*, jadwal.id_jadwal as id_jadwal');
-        $this->db->from('jadwal');
-        $this->db->join('pengguna', 'pengguna.id_pengguna = jadwal.nama_pengguna');
-        return $this->db->get();
-    }
+    // public function getJadwalByPetugas() {
+    //     $this->db->select('*, jadwal.id_jadwal as id_jadwal');
+    //     $this->db->from('jadwal');
+    //     $this->db->join('pengguna', 'pengguna.id_pengguna = jadwal.nama_pengguna');
+    //     return $this->db->get();
+    // }
 
     public function simpanJadwal() {
         $data = [
