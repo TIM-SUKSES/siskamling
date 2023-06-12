@@ -35,7 +35,7 @@ class ModelPetugas extends CI_Model {
   {
         $config['upload_path']          = 'assets/img';
         $config['allowed_types']        = 'gif|jpg|png|jpeg|heic|heif';
-        $config['max_size']             = '6144';
+        $config['max_size']             = '10240';
 
         $this->load->library('upload', $config); 
 
@@ -79,7 +79,7 @@ class ModelPetugas extends CI_Model {
     {
       $config['upload_path']          = 'assets/img';
       $config['allowed_types']        = 'gif|jpg|png|jpeg|heic|heif';
-      $config['max_size']             = '6144';
+      $config['max_size']             = '10240';
 
       $this->load->library('upload', $config); 
 
