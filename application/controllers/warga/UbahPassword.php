@@ -14,7 +14,7 @@ class UbahPassword extends CI_Controller{
   {
     $data['title'] = 'Ubah Password';
 
-    $data['pengguna'] = $this->db->get_where('warga', ['email' => $this->session->userdata('email')])->row_array();
+    $data['warga'] = $this->db->get_where('warga', ['email' => $this->session->userdata('email')])->row_array();
 
     $this->form_validation->set_rules('current_password', 'Current Password', 'required|trim');
     $this->form_validation->set_rules('new_password1', 'New Password', 'required|trim|min_length[3]|matches[new_password2]');
