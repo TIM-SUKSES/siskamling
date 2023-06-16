@@ -21,8 +21,8 @@
             <input type="hidden" id="nama_warga" name="nama_warga" value="<?php echo $this->session->userdata('nama_warga') ?>">
             <label for="alamat" class="text-white">Alamat</label>
             <input type="text" id="alamat" name="alamat" placeholder="masukkan alamat rumah anda">
-            <label for="judul_laporan" class="text-white">Judul Laporan</label>
-            <input type="text" id="judul_laporan" name="judul_laporan" placeholder="masukkan judul laporan">
+            <label for="judul_laporan" class="text-white">Subjek Laporan</label>
+            <input type="text" id="judul_laporan" name="judul_laporan" placeholder="masukkan subjek laporan">
             <label for="pesan" class="text-white">Pesan</label>
             <textarea id="pesan" name="pesan" rows="5" placeholder="isi laporan anda"></textarea>
             <label for="file" class="text-white">Foto Lampiran</label>

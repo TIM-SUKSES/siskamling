@@ -14,7 +14,7 @@
             <table id="example2" class="table table-striped table-dark table-bordered">
                 <thead>
                 <tr>
-                  <th>Judul Laporan</th>
+                  <th>Subjek Laporan</th>
                   <th>Foto Lampiran</th>
                   <th>Status</th>
                   <th>Action</th>

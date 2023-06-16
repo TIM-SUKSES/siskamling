@@ -14,7 +14,7 @@
                   <th>No.</th>
                   <th>Nama</th>
                   <th>Alamat</th>
-                  <th>Judul Laporan</th>
+                  <th>Subjek Laporan</th>
                   <th>Pesan</th>
                   <th>Foto Lampiran</th>
                   <th>Tanggal Input</th>
