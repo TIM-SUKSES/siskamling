@@ -39,7 +39,7 @@
                             <td align="center">
                             <?php if ($data->status == "Laporan Diterima" or $data->status == "Laporan Ditolak") {
                                 ?>
-                              <a href='<?= base_url('warga/LaporanWarga/hapus/'). $data->id_laporan; ?>' class='btn btn-sm btn-danger'><i class='fa fa-trash'></i> Hapus Laporan</a>
+                              <a href="<?= base_url('warga/LaporanWarga/hapus/'). $data->id_laporan; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin Menghapusnya ?')"><i class="fa fa-trash"></i> Hapus Laporan</a>
                             <?php 
                             } else {
                               ?>
