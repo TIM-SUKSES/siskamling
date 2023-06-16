@@ -6,7 +6,7 @@ class JadwalModel extends CI_Model
 
     public function getPetugas() 
     {
-        return $this->db->get('pengguna');
+        return $this->db->get('petugas');
     }
     
     // public function getJadwalByPetugas() {

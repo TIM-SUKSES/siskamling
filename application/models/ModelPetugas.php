@@ -16,7 +16,7 @@ class ModelPetugas extends CI_Model {
       'password' => password_hash($this->input->post('password', true), PASSWORD_DEFAULT),
       'role' => $this->input->post('role', true)
     ];
-    $this->db->insert('pengguna', $data);
+    $this->db->insert('petugas', $data);
   }
   
   public function update()
@@ -28,7 +28,7 @@ class ModelPetugas extends CI_Model {
       'role' => $this->input->post('role', true)
     ];
     $this->db->where('id_pengguna', $this->input->post('id_pengguna'));
-    $this->db->update('pengguna', $data);
+    $this->db->update('petugas', $data);
   }
 
   public function simpanAbsen()

@@ -13,7 +13,7 @@ class Auth extends CI_Controller{
 
   public function login()
   {
-    $cek_user = $this->db->get_where('pengguna', ['email' => $this->input->post('email', true)])->row();
+    $cek_user = $this->db->get_where('petugas', ['email' => $this->input->post('email', true)])->row();
         if ($cek_user){
             if(password_verify($this->input->post('password'), $cek_user->password)){
                 if ($cek_user->role == 'admin'){
@@ -50,6 +50,39 @@ class Auth extends CI_Controller{
                 alert('email anda tidak terdaftar!');
                 window.location.href = `" . site_url('auth') . "`;
              </script>";
+        }
+  }
+
+  public function login_warga()
+  {
+    $cek_userwarga = $this->db->get_where('warga', ['email' => $this->input->post('email', true)])->row();
+        if ($cek_userwarga)
+        {
+            if(password_verify($this->input->post('password'), $cek_userwarga->password))
+            {
+                if($cek_userwarga->role == 'warga' ){
+                    $data_session = [
+                        'id_warga' => $cek_userwarga->id_warga,
+                        'email' => $cek_userwarga->email,
+                        'password' => $cek_userwarga->password,
+                        'nama_warga' => $cek_userwarga->nama_warga,
+                        'jenis_kelamin' => $cek_userwarga->jenis_kelamin,
+                        'role' => $cek_userwarga->role
+                    ];
+                    $this->session->set_userdata($data_session);
+                    redirect("warga/HomeWarga");
+                }
+            } else {
+                echo "<script>
+                alert('password anda salah!');
+                window.location.href = `" . site_url('auth') . "`;
+                </script>";
+            }
+        } else {
+            echo "<script>
+            alert('email anda tidak terdaftar!');
+            window.location.href = `" . site_url('auth') . "`;
+         </script>"; 
         }
   }
 
