@@ -8,8 +8,8 @@
   <div class="attendance-container">
     <h1>STATUS LAPORAN ANDA</h1>
     <hr>
-    <?= $this->session->flashdata('message'); ?>
     <div class="card-form">
+        <?= $this->session->flashdata('message2'); ?>
         <div class="table-responsive">
             <table id="example2" class="table table-striped table-dark table-bordered">
                 <thead>
