@@ -93,6 +93,29 @@
         width: 100%;
       }
     }
+    
+    .dropdown-nav-menu {
+      width: 140px;
+      position: absolute;
+      top: 40px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      background-color: #fff;
+      font-size: 16px;
+    }
+    .dropdown-nav-item {
+      display: block;
+      text-decoration: none;
+      color: #000000;
+      margin-bottom: 5px;
+      transition: 0.5s ease;
+    }
+    .hidden-nav {
+      display: none;
+    }
+    .dropdown-nav-item:hover {
+      color: turquoise;
+    }
   </style>
 </head>
 <body>
@@ -100,7 +123,7 @@
     <!-- Navbar -->
     <nav class="nav-container">
       <button class="nav-button"></button>
-      <a href="<?php echo base_url('auth') ?>" style="text-decoration: none;"><h1 class="nav-logo">SISKAMLING</h1></a>
+      <h1 class="nav-logo">SISKAMLING</h1>
       <ul class="menu-container">
         <li class="menu-item">
           <a class="menu-link" href="<?php echo base_url('warga/HomeWarga'); ?>">Home</a>
@@ -113,6 +136,13 @@
         </li>
         <li class="menu-item">
           <a class="menu-link" href="<?php echo base_url('warga/BlogWarga'); ?>">Blog</a>
+        </li>
+        <li class="menu-item dropdown-menu-item" style="position: relative;">
+          <a class="menu-link" href="#"><?php echo $this->session->userdata('nama_warga'); ?> <i class="fa-solid fa-caret-down"></i></i><!-- Nama Dipanggil dari database -->
+          <div class="dropdown-nav-menu hidden-nav">
+            <a class="dropdown-nav-item" href="<?php echo base_url('warga/UbahPassword'); ?>"><i class="fa fa-gear"></i> Pengaturan</a>
+            <a class="dropdown-nav-item" href="<?php echo base_url('auth/logout'); ?>"><i class="fa fa-sign-out"></i> Keluar</a>
+          </div>
         </li>
       </ul>
     </nav>
