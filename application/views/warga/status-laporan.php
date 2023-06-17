@@ -8,19 +8,19 @@
   <div class="attendance-container">
     <h1>STATUS LAPORAN ANDA</h1>
     <hr>
-    <?= $this->session->flashdata('message'); ?>
     <div class="card-form">
+        <?= $this->session->flashdata('message2'); ?>
         <div class="table-responsive">
             <table id="example2" class="table table-striped table-dark table-bordered">
                 <thead>
                 <tr>
-                  <th>Judul Laporan</th>
+                  <th>Subjek Laporan</th>
                   <th>Foto Lampiran</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody class="text-center">
                     <?php foreach($laporan as $data) : ?>
                         <tr>
                             <td><?php echo $data->judul_laporan; ?></td>
@@ -39,7 +39,7 @@
                             <td align="center">
                             <?php if ($data->status == "Laporan Diterima" or $data->status == "Laporan Ditolak") {
                                 ?>
-                              <a href='<?= base_url('warga/LaporanWarga/hapus/'). $data->id_laporan; ?>' class='btn btn-sm btn-danger'><i class='fa fa-trash'></i> Hapus Laporan</a>
+                              <a href="<?= base_url('warga/LaporanWarga/hapus/'). $data->id_laporan; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin Menghapusnya ?')"><i class="fa fa-trash"></i> Hapus Laporan</a>
                             <?php 
                             } else {
                               ?>

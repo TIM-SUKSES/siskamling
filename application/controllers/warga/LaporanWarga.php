@@ -47,11 +47,13 @@ class LaporanWarga extends CI_Controller{
   {
     $this->db->delete('laporan', ['id_laporan' => $id_laporan]);
     if ($this->db->affected_rows() > 0){
-        $this->session->set_flashdata('message', '
-        <div class="alert alert-warning alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <h4><i class="icon fa fa-warning"></i> Laporan Telah Terhapus! </h4>
-        </div>');
+      $this->session->set_flashdata(
+        'message2',
+        '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Data Laporan Anda Telah Dihapus!</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>'
+      );
         redirect('warga/LaporanWarga/statusLaporan');
     }
   }
