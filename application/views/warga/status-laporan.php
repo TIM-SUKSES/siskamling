@@ -20,7 +20,7 @@
                   <th>Action</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody class="text-center">
                     <?php foreach($laporan as $data) : ?>
                         <tr>
                             <td><?php echo $data->judul_laporan; ?></td>
