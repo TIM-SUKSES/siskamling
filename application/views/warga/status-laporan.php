@@ -43,7 +43,7 @@
                             <?php 
                             } else {
                               ?>
-                              <a href="<?= base_url('admin/LaporanWarga/tolak/') ?>" 
+                              <a href="<?= base_url('admin/LaporanWarga/hapus/') ?>" 
                                 class="btn btn-sm btn-danger disabled"><i class="fa fa-trash"></i> Hapus Laporan</a>
                               <?php
                             }
