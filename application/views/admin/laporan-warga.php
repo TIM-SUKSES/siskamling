@@ -50,9 +50,9 @@
                               ?>
 
                               <a href="<?= base_url('admin/LaporanWarga/terima/') . $laporan->id_laporan; ?>"  
-                                class="btn btn-sm btn-info" onclick="return confirm('Apakah anda yakin izin diterima ?')"><i class="fa fa-check"></i> Terima</a>
+                                class="btn btn-sm btn-info" onclick="return confirm('Apakah anda yakin laporan diterima ?')"><i class="fa fa-check"></i> Terima</a>
                               <a href="<?= base_url('admin/LaporanWarga/tolak/') . $laporan->id_laporan; ?>" 
-                                class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin izin ditolak ?')"><i class="bi bi-x-lg"></i> Tolak</a>
+                                class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin laporan ditolak ?')"><i class="bi bi-x-lg"></i> Tolak</a>
                               <?php
                             }
                             ?>
