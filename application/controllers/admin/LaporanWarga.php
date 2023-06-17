@@ -40,18 +40,6 @@ class LaporanWarga extends CI_Controller{
   redirect('admin/LaporanWarga');
   }
 
-  public function hapus($id_laporan)
-{
-  $this->db->delete('laporan', ['id_laporan' => $id_laporan]);
-  if ($this->db->affected_rows() > 0){
-      $this->session->set_flashdata('message', '
-      <div class="alert alert-warning alert-dismissible">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          <h4><i class="icon fa fa-warning"></i> Laporan Telah Terhapus! </h4>
-      </div>');
-      redirect('warga/LaporanWarga/statusLaporan');
-  }
-}
 
 }
 
