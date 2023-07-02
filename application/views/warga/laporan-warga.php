@@ -19,6 +19,7 @@
           <h2 class="text-white">Ruang Laporan Warga</h2>
           <form action="<?php echo site_url('warga/LaporanWarga/DataLaporan'); ?>" method="post" enctype="multipart/form-data" >
             <input type="hidden" id="nama_warga" name="nama_warga" value="<?php echo $this->session->userdata('nama_warga') ?>">
+            <input type="hidden" id="id_warga" name="id_warga" value="<?php echo $this->session->userdata('id_warga') ?>">
             <label for="alamat" class="text-white">Alamat</label>
             <input type="text" id="alamat" name="alamat" placeholder="masukkan alamat rumah anda">
             <label for="judul_laporan" class="text-white">Subjek Laporan</label>

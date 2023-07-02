@@ -37,7 +37,7 @@ class LaporanWarga extends CI_Controller{
     $this->load->model('ModelWarga');
     $this->ModelWarga->getDataLaporan();
     $data['title'] = 'Status Laporan Warga';
-    $data['laporan'] = $this->db->get_where('laporan',['nama_warga' => $this->session->userdata('nama_warga')])->result();
+    $data['laporan'] = $this->db->get_where('laporan',['id_warga' => $this->session->userdata('id_warga')])->result();
     $this->load->view('warga/templates/warga-header', $data);
     $this->load->view('warga/status-laporan');
     $this->load->view('warga/templates/warga-footer', $data);

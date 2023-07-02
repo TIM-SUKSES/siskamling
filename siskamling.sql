@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2023 at 05:06 PM
+-- Generation Time: Jul 02, 2023 at 02:50 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -109,6 +109,7 @@ INSERT INTO `jadwal` (`id_jadwal`, `nama_pengguna`, `hari`, `jam_masuk`, `jam_ke
 
 CREATE TABLE `laporan` (
   `id_laporan` int(11) NOT NULL,
+  `id_warga` int(11) NOT NULL,
   `nama_warga` varchar(50) NOT NULL,
   `alamat` text NOT NULL,
   `judul_laporan` varchar(50) NOT NULL,
@@ -117,6 +118,13 @@ CREATE TABLE `laporan` (
   `tanggal_input` timestamp NOT NULL DEFAULT current_timestamp(),
   `status` enum('Laporan Sedang Ditinjau','Laporan Diterima','Laporan Ditolak') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `laporan`
+--
+
+INSERT INTO `laporan` (`id_laporan`, `id_warga`, `nama_warga`, `alamat`, `judul_laporan`, `pesan`, `file`, `tanggal_input`, `status`) VALUES
+(17, 2, 'Adi Suwarna', 'PERUM PONDOK MELATI BLOK F2/16', 'Menemukan Dompet', 'ada dompet tergeletak didepan halaman rumah saya, berikut bentuk fisiknya', 'dompet-hilang11.png', '2023-07-02 00:42:33', 'Laporan Sedang Ditinjau');
 
 -- --------------------------------------------------------
 
@@ -141,7 +149,7 @@ INSERT INTO `petugas` (`id_pengguna`, `email`, `password`, `nama_pengguna`, `rol
 (4, 'raihanramadhan09@gmail.com', '$2y$10$/l2IMutIQLMHdWHljnVy0.Vqr0Ha3qh22/h260UszBk48OoeNVrsm', 'Raihan Ramadhan', 'petugas'),
 (5, 'yusup@gmail.com', '$2y$10$O898lUVwOSZtih7Az2.HCu7LH2x8QefaLiqKasP2aKLHtzFzTKkiW', 'Yusup Supriatna', 'petugas'),
 (8, 'nabilmuthi77@gmail.com', '$2y$10$uzT4jtXzowkA2iJ6r0OYsu87qjCNIsM4bz809baKTWk6ogFXlckGm', 'Nabil Muthi Maulani', 'petugas'),
-(9, 'wandesay85@gmail.com', '$2y$10$BmNrbvt8svytedcKzyf4ueCkBQyuGEk2j4WPDaA8fVXKgKMtSNxXG', 'Alvin Austin', 'petugas'),
+(9, 'wandesay85@gmail.com', '$2y$10$T1x2rzC4ghvujQI9AfqiauEE2hJY/xL1pQZPNvdj5c8bCE/Er6DXW', 'Alvin Austin', 'petugas'),
 (10, 'fadly@gmail.com', '$2y$10$AlkI61ViJzDckAiOteQG9.HySA3X09DTIoQztAyU4e2lLYnc9xnQ2', 'Fadly Faturrohman', 'petugas'),
 (12, 'jaguar@gmail.com', '$2y$10$Sw1BpSzVezqG2MUcyQOakOLXlKsOir8Xp6CXcqfZ/fV6tYO3Oa57e', 'Keenan Krier', 'petugas');
 
@@ -203,9 +211,10 @@ CREATE TABLE `warga` (
 --
 
 INSERT INTO `warga` (`id_warga`, `email`, `password`, `nama_warga`, `jenis_kelamin`, `role`) VALUES
-(1, 'warga1@gmail.com', '$2y$10$0qjfKX0ij8wdQf10ifSe2.M7tl1I.xCKqHMhjYJ2KjluuK2PHdb4u', 'Asep Rocky', 'Laki-Laki', 'warga'),
+(1, 'warga1@gmail.com', '$2y$10$rf2hPG8MYsQxIKW1ZPO6muga.oUAyPxHgMQT12ePKJFEvIhiggMg6', 'Asep Rocky', 'Laki-Laki', 'warga'),
 (2, 'warga2@gmail.com', '$2y$10$ttaWIjupzkczRP2cWoLuk.U2v2cqacBB1rxXSKj85LeQetvgrh21q', 'Adi Suwarna', 'Laki-Laki', 'warga'),
-(3, 'warga3@gmail.com', '$2y$10$R09JVxeYr6o6ervkYM0HZ.3ExNF.dTdqujUAjfwZ8eBCHS7aw7tai', 'Trina Ramadhian', 'Perempuan', 'warga');
+(3, 'warga3@gmail.com', '$2y$10$R09JVxeYr6o6ervkYM0HZ.3ExNF.dTdqujUAjfwZ8eBCHS7aw7tai', 'Trina Ramadhian', 'Perempuan', 'warga'),
+(4, 'warga4@gmail.com', '$2y$10$DwIbByh/ZxeU1OGhFEb7b.cwNL7C7QQLcp6NqKc1NUVMX.E75MV8e', 'Adi Suwarna', 'Laki-Laki', 'warga');
 
 --
 -- Indexes for dumped tables
@@ -285,7 +294,7 @@ ALTER TABLE `jadwal`
 -- AUTO_INCREMENT for table `laporan`
 --
 ALTER TABLE `laporan`
-  MODIFY `id_laporan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_laporan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `petugas`
@@ -309,7 +318,7 @@ ALTER TABLE `shift`
 -- AUTO_INCREMENT for table `warga`
 --
 ALTER TABLE `warga`
-  MODIFY `id_warga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_warga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
