@@ -36,8 +36,8 @@ class ModelWarga extends CI_Model
     public function simpanLaporan()
     {
         $config['upload_path']          = 'assets/img';
-        $config['allowed_types']        = 'gif|jpg|png|jpeg';
-        $config['max_size']             = '2048';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg|heic|heif';
+        $config['max_size']             = '10240';
 
         $this->load->library('upload', $config); 
 
@@ -58,6 +58,7 @@ class ModelWarga extends CI_Model
 
         date_default_timezone_set("Asia/Jakarta");
         $data = [
+            'id_warga' => htmlspecialchars($this->input->post('id_warga', true)),
             'nama_warga' => htmlspecialchars($this->input->post('nama_warga', true)),
             'alamat' => htmlspecialchars($this->input->post('alamat', true)),
             'judul_laporan' => htmlspecialchars($this->input->post('judul_laporan', true)),
