@@ -12,5 +12,7 @@ COMING SOON PROJECT!
 Server Requirements
 *******************
 
+CODEIGNITER 3
+
 PHP version 5.6 or newer is recommended.
 
