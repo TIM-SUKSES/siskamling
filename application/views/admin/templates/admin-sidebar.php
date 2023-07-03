@@ -17,7 +17,7 @@
         <li class="header">Menu Admin</li>
         <li class="<?php echo $this->uri->segment(2) == 'DataPetugas' ? 'active' : '' ?> ">
           <a href="<?php echo site_url('admin/DataPetugas'); ?>">
-            <i class="fa fa-group"></i> <span>Data Petugas</span>
+            <i class="fa fa-user"></i> <span>Data Petugas</span>
           </a>
         </li>
         <li class="<?php echo $this->uri->segment(2) == 'MasukPetugas' ? 'active' : '' ?> ">
@@ -33,6 +33,11 @@
         <li class="<?php echo $this->uri->segment(2) == 'JadwalPetugas' ? 'active' : '' ?> ">
           <a href="<?php echo site_url('admin/JadwalPetugas'); ?>">
           <i class="fa fa-calendar"></i> <span>Jadwal Petugas</span>
+          </a>
+        </li>
+        <li class="<?php echo $this->uri->segment(2) == 'DataWarga' ? 'active' : '' ?> ">
+          <a href="<?php echo site_url('admin/DataWarga'); ?>">
+            <i class="fa fa-group"></i> <span>Data Warga</span>
           </a>
         </li>
         <li class="<?php echo $this->uri->segment(2) == 'LaporanWarga' ? 'active' : '' ?> ">

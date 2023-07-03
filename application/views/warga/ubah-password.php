@@ -10,14 +10,14 @@
     <h1>UBAH PASSWORD</h1>
     <hr>
     <div class="card-form">
-      <div class="absen-container">
+      <div class="report-container">
         <div class="image-container">
-          <img src="<?php echo base_url('assets/'); ?>img/icon/ubah-password.png" alt="Password Image">
+          <img src="<?php echo base_url('assets/'); ?>img/icon/ubah-password.png" width="85%" alt="Password Image">
         </div>
         <div class="form-container">
-          <h2 class="text-white">Ubah Password Petugas</h2>
+          <h2 class="text-white">Ubah Password Warga</h2>
           <?php echo $this->session->flashdata('message'); ?>
-          <form action="<?php echo base_url('petugas/UbahPassword/index'); ?>" method="post">
+          <form action="<?php echo base_url('warga/UbahPassword/index'); ?>" method="post">
             <label for="password" class="text-white">Password Lama</label>
             <input type="password" id="current_password" name="current_password">
             <?php echo form_error('password', '<small class="text-warning pl-1">', '</small>'); ?>

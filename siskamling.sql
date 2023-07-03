@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jun 06, 2023 at 08:44 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Host: 127.0.0.1
+-- Generation Time: Jul 02, 2023 at 02:50 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -63,7 +63,7 @@ CREATE TABLE `jadwal` (
   `hari` varchar(12) NOT NULL,
   `jam_masuk` time NOT NULL,
   `jam_keluar` time NOT NULL,
-  `status` int(11) NOT NULL
+  `status` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -76,7 +76,7 @@ INSERT INTO `jadwal` (`id_jadwal`, `nama_pengguna`, `hari`, `jam_masuk`, `jam_ke
 (27, 'Yusup Supriatna', 'Monday', '06:00:00', '17:00:00', 0),
 (28, 'Nabil Muthi Maulani', 'Monday', '06:00:00', '18:00:00', 0),
 (29, 'Alvin Austin', 'Tuesday', '06:00:00', '17:00:00', 0),
-(30, 'Raihan Ramadhan', 'Tuesday', '06:00:00', '18:00:00', 1),
+(30, 'Raihan Ramadhan', 'Tuesday', '06:00:00', '18:00:00', 0),
 (31, 'Yusup Supriatna', 'Tuesday', '06:00:00', '17:00:00', 0),
 (32, 'Fadly Faturrohman', 'Tuesday', '06:00:00', '18:00:00', 0),
 (33, 'Alvin Austin', 'Wednesday', '06:00:00', '17:00:00', 0),
@@ -98,7 +98,8 @@ INSERT INTO `jadwal` (`id_jadwal`, `nama_pengguna`, `hari`, `jam_masuk`, `jam_ke
 (49, 'Alvin Austin', 'Sunday', '06:00:00', '17:00:00', 0),
 (50, 'Raihan Ramadhan', 'Sunday', '06:00:00', '18:00:00', 0),
 (51, 'Yusup Supriatna', 'Sunday', '06:00:00', '17:00:00', 0),
-(54, 'Fadly Faturrohman', 'Sunday', '06:00:00', '18:00:00', 0);
+(54, 'Fadly Faturrohman', 'Sunday', '06:00:00', '18:00:00', 0),
+(56, 'Keenan Krier', 'Thursday', '06:00:00', '17:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -108,29 +109,30 @@ INSERT INTO `jadwal` (`id_jadwal`, `nama_pengguna`, `hari`, `jam_masuk`, `jam_ke
 
 CREATE TABLE `laporan` (
   `id_laporan` int(11) NOT NULL,
+  `id_warga` int(11) NOT NULL,
   `nama_warga` varchar(50) NOT NULL,
   `alamat` text NOT NULL,
+  `judul_laporan` varchar(50) NOT NULL,
   `pesan` text NOT NULL,
   `file` text NOT NULL,
-  `tanggal_input` timestamp NOT NULL DEFAULT current_timestamp()
+  `tanggal_input` timestamp NOT NULL DEFAULT current_timestamp(),
+  `status` enum('Laporan Sedang Ditinjau','Laporan Diterima','Laporan Ditolak') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `laporan`
 --
 
-INSERT INTO `laporan` (`id_laporan`, `nama_warga`, `alamat`, `pesan`, `file`, `tanggal_input`) VALUES
-(1, 'Adi Suwarna', 'PERUM PONDOK MELATI BLOK L12/10', 'Aya ular asup ka imah ', 'ular1.jpg', '2023-05-30 03:16:19'),
-(2, 'Ujang Kusnandar', 'Pondok Melati F4/10', 'Baju di jemuran hilang', 'jemuran1.jpg', '2023-05-30 03:18:09'),
-(3, 'Ahmad Subarjo', 'PERUM PONDOK MELATI BLOK K9/25', 'Anak saya belum pulang dari tanggal 10 mei, dengan ciri ciri seperti berikut:\r\n\r\nkulit sawo matang\r\ntinggi badan 155cm\r\njenis kelamin laki-laki\r\npakaian menggunakan seragam sekolah smp\r\n\r\napabila ada yang menemukan hub 0895xxxxxxx', 'anak-hilang.jpg', '2023-05-30 03:22:50');
+INSERT INTO `laporan` (`id_laporan`, `id_warga`, `nama_warga`, `alamat`, `judul_laporan`, `pesan`, `file`, `tanggal_input`, `status`) VALUES
+(17, 2, 'Adi Suwarna', 'PERUM PONDOK MELATI BLOK F2/16', 'Menemukan Dompet', 'ada dompet tergeletak didepan halaman rumah saya, berikut bentuk fisiknya', 'dompet-hilang11.png', '2023-07-02 00:42:33', 'Laporan Sedang Ditinjau');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengguna`
+-- Table structure for table `petugas`
 --
 
-CREATE TABLE `pengguna` (
+CREATE TABLE `petugas` (
   `id_pengguna` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -139,16 +141,17 @@ CREATE TABLE `pengguna` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pengguna`
+-- Dumping data for table `petugas`
 --
 
-INSERT INTO `pengguna` (`id_pengguna`, `email`, `password`, `nama_pengguna`, `role`) VALUES
-(3, 'alvin.austin4@gmail.com', '$2y$10$LwH1QM4TbM3oGLe7lXBQFuebzNgyBpwQPUpFG6LtI7P9rorH6xYWm', 'King Cobra v2', 'admin'),
+INSERT INTO `petugas` (`id_pengguna`, `email`, `password`, `nama_pengguna`, `role`) VALUES
+(3, 'alvin.austin4@gmail.com', '$2y$10$YiQLHFQPifCrUFjzJouQ/e//74Uzc7MZVYGPKw9Ex2uvb9KerXkmS', 'PAK RT', 'admin'),
 (4, 'raihanramadhan09@gmail.com', '$2y$10$/l2IMutIQLMHdWHljnVy0.Vqr0Ha3qh22/h260UszBk48OoeNVrsm', 'Raihan Ramadhan', 'petugas'),
 (5, 'yusup@gmail.com', '$2y$10$O898lUVwOSZtih7Az2.HCu7LH2x8QefaLiqKasP2aKLHtzFzTKkiW', 'Yusup Supriatna', 'petugas'),
 (8, 'nabilmuthi77@gmail.com', '$2y$10$uzT4jtXzowkA2iJ6r0OYsu87qjCNIsM4bz809baKTWk6ogFXlckGm', 'Nabil Muthi Maulani', 'petugas'),
-(9, 'wandesay85@gmail.com', '$2y$10$BmNrbvt8svytedcKzyf4ueCkBQyuGEk2j4WPDaA8fVXKgKMtSNxXG', 'Alvin Austin', 'petugas'),
-(10, 'fadly@gmail.com', '$2y$10$AlkI61ViJzDckAiOteQG9.HySA3X09DTIoQztAyU4e2lLYnc9xnQ2', 'Fadly Faturrohman', 'petugas');
+(9, 'wandesay85@gmail.com', '$2y$10$T1x2rzC4ghvujQI9AfqiauEE2hJY/xL1pQZPNvdj5c8bCE/Er6DXW', 'Alvin Austin', 'petugas'),
+(10, 'fadly@gmail.com', '$2y$10$AlkI61ViJzDckAiOteQG9.HySA3X09DTIoQztAyU4e2lLYnc9xnQ2', 'Fadly Faturrohman', 'petugas'),
+(12, 'jaguar@gmail.com', '$2y$10$Sw1BpSzVezqG2MUcyQOakOLXlKsOir8Xp6CXcqfZ/fV6tYO3Oa57e', 'Keenan Krier', 'petugas');
 
 -- --------------------------------------------------------
 
@@ -188,6 +191,31 @@ INSERT INTO `shift` (`id_shift`, `nama_shift`) VALUES
 (1, 'pagi'),
 (2, 'malam');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `warga`
+--
+
+CREATE TABLE `warga` (
+  `id_warga` int(11) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `nama_warga` char(50) NOT NULL,
+  `jenis_kelamin` enum('Laki-Laki','Perempuan') NOT NULL,
+  `role` enum('warga') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `warga`
+--
+
+INSERT INTO `warga` (`id_warga`, `email`, `password`, `nama_warga`, `jenis_kelamin`, `role`) VALUES
+(1, 'warga1@gmail.com', '$2y$10$rf2hPG8MYsQxIKW1ZPO6muga.oUAyPxHgMQT12ePKJFEvIhiggMg6', 'Asep Rocky', 'Laki-Laki', 'warga'),
+(2, 'warga2@gmail.com', '$2y$10$ttaWIjupzkczRP2cWoLuk.U2v2cqacBB1rxXSKj85LeQetvgrh21q', 'Adi Suwarna', 'Laki-Laki', 'warga'),
+(3, 'warga3@gmail.com', '$2y$10$R09JVxeYr6o6ervkYM0HZ.3ExNF.dTdqujUAjfwZ8eBCHS7aw7tai', 'Trina Ramadhian', 'Perempuan', 'warga'),
+(4, 'warga4@gmail.com', '$2y$10$DwIbByh/ZxeU1OGhFEb7b.cwNL7C7QQLcp6NqKc1NUVMX.E75MV8e', 'Adi Suwarna', 'Laki-Laki', 'warga');
+
 --
 -- Indexes for dumped tables
 --
@@ -217,9 +245,9 @@ ALTER TABLE `laporan`
   ADD PRIMARY KEY (`id_laporan`);
 
 --
--- Indexes for table `pengguna`
+-- Indexes for table `petugas`
 --
-ALTER TABLE `pengguna`
+ALTER TABLE `petugas`
   ADD PRIMARY KEY (`id_pengguna`);
 
 --
@@ -235,6 +263,12 @@ ALTER TABLE `shift`
   ADD PRIMARY KEY (`id_shift`);
 
 --
+-- Indexes for table `warga`
+--
+ALTER TABLE `warga`
+  ADD PRIMARY KEY (`id_warga`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -242,31 +276,31 @@ ALTER TABLE `shift`
 -- AUTO_INCREMENT for table `absen`
 --
 ALTER TABLE `absen`
-  MODIFY `id_absen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_absen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `izin`
 --
 ALTER TABLE `izin`
-  MODIFY `id_izin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_izin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `laporan`
 --
 ALTER TABLE `laporan`
-  MODIFY `id_laporan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_laporan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `pengguna`
+-- AUTO_INCREMENT for table `petugas`
 --
-ALTER TABLE `pengguna`
-  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+ALTER TABLE `petugas`
+  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -279,6 +313,12 @@ ALTER TABLE `roles`
 --
 ALTER TABLE `shift`
   MODIFY `id_shift` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `warga`
+--
+ALTER TABLE `warga`
+  MODIFY `id_warga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

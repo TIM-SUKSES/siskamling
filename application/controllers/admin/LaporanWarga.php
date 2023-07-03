@@ -20,6 +20,27 @@ class LaporanWarga extends CI_Controller{
       $this->load->view('admin/templates/admin-footer');
   }
 
+  public function terima($id) {
+    $data = [
+      'status' => "Laporan Diterima"
+  ];
+
+  $this->db->where('id_laporan', $id);
+  $this->db->update('laporan', $data);
+  redirect('admin/LaporanWarga');
+  }
+
+  public function tolak($id) {
+    $data = [
+      'status' => "Laporan Ditolak"
+  ];
+
+  $this->db->where('id_laporan', $id);
+  $this->db->update('laporan', $data);
+  redirect('admin/LaporanWarga');
+  }
+
+
 }
 
 ?>

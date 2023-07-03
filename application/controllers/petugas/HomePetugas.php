@@ -13,7 +13,7 @@ class HomePetugas extends CI_Controller{
   public function index()
   {
     $data['title'] = 'Home';
-    $data['pengguna'] = $this->db->get_where('pengguna',['id_pengguna' => $this->session->userdata('id_pengguna')])->row();
+    $data['pengguna'] = $this->db->get_where('petugas',['id_pengguna' => $this->session->userdata('id_pengguna')])->row();
     $this->load->view('petugas/templates/petugas-header', $data);
     $this->load->view('petugas/home-petugas', $data);
     $this->load->view('petugas/templates/petugas-footer', $data);

@@ -5,7 +5,7 @@
     <!-- Logo -->
     <a href="<?php echo site_url('admin/dashboard'); ?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><img class="logo-mini" src="<?php echo base_url('assets/img/Logo SIMILU transparan.png'); ?>"><b>SKM<b></span>
+      <span class="logo-mini"><img class="logo-mini"><b>SKM<b></span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>SISKAMLING</b></span>
     </a>
