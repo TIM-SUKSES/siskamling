@@ -51,6 +51,14 @@
               </div>
             </td>
           </tr>
+          <tr>
+            <td>
+            <div class="form-group">
+                <label for="status">Status <span class="text-danger">*</span></label>
+                <input type="hidden" name="status" id="status" class="form-control" placeholder="status" required value="">
+              </div>
+            </td>
+          </tr>
         </table>
         <button type="reset" class="btn"><i class="fa fa-refresh"></i> Reset</button>
         <button type="submit" class="btn bg-navy" style="margin-left: 4px;"><i class="fa fa-save"></i> Simpan</button>

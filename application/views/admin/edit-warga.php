@@ -32,6 +32,7 @@
               <div class="form-group">
                 <label for="password">Password <span class="text-danger">*</span></label>
                 <input type="password" name="password" id="password" class="form-control" placeholder="Masukkan Password" required value="siskamling2023"><!-- Value diambil dari database -->
+                <input type="checkbox" onclick="myFunction()"> Lihat Password
               </div>
             </td>
           </tr>

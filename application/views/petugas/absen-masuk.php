@@ -23,7 +23,7 @@
             <input type="text" id="random-text" name="persyaratan" readonly>
             <input type="hidden" name="id_jadwal" value="<?= $id_jadwal; ?>">
             <label for="camera" class="text-white">Kamera</label>
-            <input type="file" accept="image/*;capture=gallery" id="camera" name="camera">
+            <input type="file" accept="image/*;capture=gallery" id="camera" name="camera" required>
             <?= $this->session->flashdata('message'); ?>
             <input type="hidden" name="status" value="Menunggu Verifikasi">
 

@@ -56,7 +56,7 @@ class ModelWarga extends CI_Model
             redirect('warga/LaporanWarga');
         }
 
-        date_default_timezone_set("Asia/Jakarta");
+        // date_default_timezone_set("Asia/Jakarta");
         $data = [
             'id_warga' => htmlspecialchars($this->input->post('id_warga', true)),
             'nama_warga' => htmlspecialchars($this->input->post('nama_warga', true)),

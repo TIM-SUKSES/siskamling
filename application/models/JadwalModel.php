@@ -33,7 +33,8 @@ class JadwalModel extends CI_Model
             'nama_pengguna' => $this->input->post('nama_pengguna'),
             'hari' => $this->input->post('hari', true),
             'jam_masuk' => $this->input->post('jam_masuk', true),
-            'jam_keluar' => $this->input->post('jam_keluar', true)
+            'jam_keluar' => $this->input->post('jam_keluar', true),
+            'status' => $this->input->post('status', true)
         ];
 
         $this->db->where('id_jadwal', $this->input->post('id_jadwal'));
